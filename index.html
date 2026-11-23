@@ -73,8 +73,18 @@ from { opacity: 0; transform: translateY(15px); }
 to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes floating {
+0% { transform: translateY(0px) rotate(0deg); }
+50% { transform: translateY(-8px) rotate(0.3deg); }
+100% { transform: translateY(0px) rotate(0deg); }
+}
+
 .animate-fade-in {
 animation: fadeIn 0.8s ease-out forwards;
+}
+
+.floating-element {
+animation: floating 5s ease-in-out infinite;
 }
 
 nav {
@@ -523,7 +533,7 @@ cursor: pointer;
 }
 
 footer {
-background-color: var(--corporate-navy);
+background-color: var(--brand-red);
 color: var(--white);
 padding: 30px 1rem;
 text-align: center;
@@ -532,7 +542,7 @@ text-align: center;
 .footer-contact {
 margin-top: 10px;
 font-size: 0.85rem;
-color: var(--accent-gray);
+color: var(--white);
 line-height: 1.5;
 }
 
