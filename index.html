@@ -130,6 +130,29 @@ text-transform: uppercase;
 margin-top: 2px;
 }
 
+/* Hamburger Menu Styles */
+.menu-toggle {
+display: none;
+flex-direction: column;
+justify-content: space-between;
+width: 30px;
+height: 21px;
+background: none;
+border: none;
+cursor: pointer;
+padding: 0;
+z-index: 1001;
+}
+
+.menu-toggle span {
+display: block;
+height: 3px;
+width: 100%;
+background-color: var(--corporate-navy);
+border-radius: 3px;
+transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
 .nav-links {
 display: flex;
 gap: 12px;
@@ -755,11 +778,59 @@ opacity: 0.95;
 
 .footer-contact strong { color: var(--white); }
 
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+.menu-toggle {
+display: flex;
+}
+
+.nav-links {
+position: absolute;
+top: 100%;
+left: 0;
+width: 100%;
+background-color: var(--white);
+flex-direction: column;
+align-items: center;
+padding: 20px 0;
+gap: 15px;
+box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+max-height: 0;
+overflow: hidden;
+transition: max-height 0.3s ease-in-out;
+border-bottom: 1px solid var(--accent-gray);
+}
+
+.nav-links.active {
+max-height: 300px;
+}
+
+.nav-links a {
+width: 80%;
+text-align: center;
+padding: 10px;
+font-size: 1rem;
+}
+
+/* Hamburger Animation */
+.menu-toggle.active span:nth-child(1) {
+transform: translateY(9px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+transform: translateY(-9px) rotate(-45deg);
+}
+}
+
 @media (max-width: 576px) {
 .inquiry-options { grid-template-columns: 1fr; }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
 nav { padding: 0.8rem 4%; }
 .nav-links { gap: 18px; }
 header { padding: 80px 4%; }
@@ -794,7 +865,14 @@ footer { padding: 60px 4%; }
 </div>
 <span class="logo-tagline">A New Vision for Better Health</span>
 </div>
-<div class="nav-links">
+
+<button class="menu-toggle" aria-label="Toggle navigation" onclick="toggleMenu()">
+<span></span>
+<span></span>
+<span></span>
+</button>
+
+<div class="nav-links" id="navLinks">
 <a id="nav-home" class="active" onclick="openPage('home')">Home</a>
 <a id="nav-products" onclick="openPage('products')">Products</a>
 <a id="nav-about" onclick="openPage('about')">About</a>
@@ -1132,6 +1210,19 @@ if (targetPage) targetPage.classList.add('active');
 const activeNav = document.getElementById('nav-' + pageName);
 if (activeNav) activeNav.classList.add('active');
 window.scrollTo({ top: 0, behavior: 'smooth' });
+
+// Close mobile menu after selection
+const navLinksContainer = document.getElementById('navLinks');
+if (navLinksContainer.classList.contains('active')) {
+toggleMenu();
+}
+}
+
+function toggleMenu() {
+const navLinks = document.getElementById('navLinks');
+const menuToggle = document.querySelector('.menu-toggle');
+navLinks.classList.toggle('active');
+menuToggle.classList.toggle('active');
 }
 </script>
 
