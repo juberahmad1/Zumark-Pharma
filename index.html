@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZuMark Pharma | Corporate Excellence in Healthcare</title>
+<style>
+:root {
+--brand-red: #BD0000;
+--corporate-navy: #1E293B;
+--text-dark: #334155;
+--bg-light: #F8FAFC;
+--white: #FFFFFF;
+--accent-gray: #E2E8F0;
+}
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+background-color: var(--bg-light);
+color: var(--text-dark);
+line-height: 1.6;
+overflow-x: hidden;
+}
+
+/* Animations */
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(20px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Navigation */
+nav {
+background: var(--white);
+padding: 1rem 5%;
+display: flex;
+justify-content: space-between;
+align-items: center;
+position: sticky;
+top: 0;
+z-index: 1000;
+box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container {
+display: flex;
+align-items: center;
+gap: 15px;
+}
+
+.logo-img {
+height: 50px;
+width: auto;
+}
+
+.brand-name {
+font-size: 1.5rem;
+font-weight: 700;
+color: var(--corporate-navy);
+letter-spacing: -0.5px;
+}
+
+.nav-links a {
+margin-left: 20px;
+text-decoration: none;
+color: var(--text-dark);
+font-weight: 500;
+transition: color 0.3s;
+}
+
+.nav-links a:hover {
+color: var(--brand-red);
+}
+
+/* Hero Section */
+header {
+background: linear-gradient(135deg, var(--corporate-navy) 0%, #0F172A 100%);
+color: var(--white);
+padding: 100px 5%;
+text-align: center;
+position: relative;
+}
+
+header h1 {
+font-size: 3.5rem;
+margin-bottom: 20px;
+font-weight: 800;
+}
+
+header p {
+font-size: 1.2rem;
+max-width: 700px;
+margin: 0 auto;
+color: var(--accent-gray);
+}
+
+/* Products Section */
+.products-section {
+padding: 80px 5%;
+max-width: 1200px;
+margin: 0 auto;
+}
+
+.section-title {
+text-align: center;
+font-size: 2.5rem;
+color: var(--corporate-navy);
+margin-bottom: 50px;
+}
+
+.product-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+gap: 40px;
+}
+
+.product-card {
+background: var(--white);
+border-radius: 12px;
+overflow: hidden;
+box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+display: flex;
+flex-direction: column;
+}
+
+.product-card:hover {
+transform: translateY(-10px);
+box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+width: 100%;
+height: 250px;
+object-fit: contain;
+background-color: #F1F5F9;
+padding: 20px;
+}
+
+.product-content {
+padding: 30px;
+flex-grow: 1;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+}
+
+.product-content h3 {
+font-size: 1.8rem;
+color: var(--corporate-navy);
+margin-bottom: 10px;
+}
+
+.tagline {
+font-style: italic;
+color: var(--brand-red);
+margin-bottom: 15px;
+font-size: 0.95rem;
+}
+
+.salt-section {
+background: var(--bg-light);
+padding: 15px;
+border-radius: 8px;
+margin-bottom: 20px;
+}
+
+.salt-title {
+font-weight: 600;
+font-size: 0.9rem;
+color: var(--corporate-navy);
+text-transform: uppercase;
+letter-spacing: 0.5px;
+margin-bottom: 5px;
+}
+
+.salt-list {
+font-size: 0.95rem;
+color: var(--text-dark);
+}
+
+.benefits-list {
+margin: 15px 0 25px 20px;
+font-size: 0.95rem;
+color: var(--text-dark);
+}
+
+.inquire-btn {
+display: inline-block;
+width: 100%;
+padding: 12px;
+background-color: var(--brand-red);
+color: var(--white);
+text-align: center;
+text-decoration: none;
+border-radius: 6px;
+font-weight: 600;
+transition: background-color 0.3s;
+}
+
+.inquire-btn:hover {
+background-color: #990000;
+}
+
+/* Footer */
+footer {
+background-color: var(--corporate-navy);
+color: var(--white);
+padding: 40px 5%;
+text-align: center;
+}
+
+.footer-content {
+max-width: 800px;
+margin: 0 auto;
+}
+
+.footer-contact {
+margin-top: 20px;
+font-size: 0.9rem;
+color: var(--accent-gray);
+}
+
+@media (max-width: 768px) {
+header h1 { font-size: 2.5rem; }
+.product-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+<div class="logo-container">
+<img src="3710.png" alt="ZuMark Pharma Logo" class="logo-img">
+<span class="brand-name">ZUMARK PHARMA</span>
+</div>
+<div class="nav-links">
+<a href="#home">Home</a>
+<a href="#products">Products</a>
+<a href="#about">About</a>
+</div>
+</nav>
+
+<header id="home" class="animate-fade-in">
+<h1>A New Vision for Better Health</h1>
+<p>Welcome to ZuMark Pharma. We are committed to delivering premium quality dermatological and skincare solutions with uncompromising clarity and scientific precision.</p>
+</header>
+
+<section id="products" class="products-section">
+<h2 class="section-title animate-fade-in">Our Premier Product Range</h2>
+
+<div class="product-grid">
+<!-- Product 1 -->
+<div class="product-card animate-fade-in">
+<img src="3726.jpg" alt="Mela Mark Cream" class="product-image">
+<div class="product-content">
+<div>
+<h3>Mela Mark Cream</h3>
+<p class="tagline">For Pigmentation & Uneven Skin Tone</p>
+
+<div class="salt-section">
+<div class="salt-title">Active Composition</div>
+<div class="salt-list">Betamethasone Valerate, Clindamycin Phosphate, Nicotinamide, Vitamin E Acetate</div>
+</div>
+
+<div class="salt-title">Targeted Benefits</div>
+<ul class="benefits-list">
+<li>Reduces Dark Spots</li>
+<li>Effective Melasma Care</li>
+<li>Brightens & Evens Complexion</li>
+</ul>
+</div>
+<a href="https://wa.me/918908908913?text=I%20would%20like%20to%20inquire%20about%20Mela%20Mark%20Cream" class="inquire-btn" target="_blank">Inquire via WhatsApp</a>
+</div>
+</div>
+
+<!-- Product 2 -->
+<div class="product-card animate-fade-in">
+<img src="3725.jpg" alt="Mela Mark S Ointment" class="product-image">
+<div class="product-content">
+<div>
+<h3>Mela Mark S Ointment</h3>
+<p class="tagline">Advanced Pigmentation & Dark Spot Therapy</p>
+
+<div class="salt-section">
+<div class="salt-title">Active Composition</div>
+<div class="salt-list">Clobetasol Propionate & Salicylic Acid</div>
+</div>
+
+<div class="salt-title">Targeted Benefits</div>
+<ul class="benefits-list">
+<li>Lightens Stubborn Pigmentation</li>
+<li>Soothes Skin Irritation</li>
+<li>Promotes Smooth, Clear Skin</li>
+</ul>
+</div>
+<a href="https://wa.me/918908908913?text=I%20would%20like%20to%20inquire%20about%20Mela%20Mark%20S%20Ointment" class="inquire-btn" target="_blank">Inquire via WhatsApp</a>
+</div>
+</div>
+
+<!-- Product 3 -->
+<div class="product-card animate-fade-in">
+<img src="3728.jpg" alt="Mela Mark Soap" class="product-image">
+<div class="product-content">
+<div>
+<h3>Mela Mark Soap</h3>
+<p class="tagline">Premium Dermatological Cleansing Bar</p>
+
+<div class="salt-section">
+<div class="salt-title">Key Ingredients</div>
+<div class="salt-list">Enriched with Almond Oil, Coconut Oil, Aloe Vera Extract, and Glycerin</div>
+</div>
+
+<div class="salt-title">Usage</div>
+<p style="font-size: 0.95rem; margin-bottom: 25px;">Gentle cleansing bar formulated to maintain skin hydration while supporting the Mela Mark treatment regimen.</p>
+</div>
+<a href="https://wa.me/918908908913?text=I%20would%20like%20to%20inquire%20about%20Mela%20Mark%20Soap" class="inquire-btn" target="_blank">Inquire via WhatsApp</a>
+</div>
+</div>
+</div>
+</section>
+
+<footer id="about">
+<div class="footer-content">
+<h3>ZUMARK PHARMA</h3>
+<p style="margin-top: 10px; color: var(--accent-gray);">Dedicated to advancing dermatological health through quality, consistency, and trust.</p>
+<div class="footer-contact">
+<p>Corporate Office: Nalasopara East, Mumbai Region, India</p>
+<p>Email: info@zumarkpharma.in | Helpline: +91 89089 08913</p>
+</div>
+</div>
+</footer>
+
+</body>
+</html>
