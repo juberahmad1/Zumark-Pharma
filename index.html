@@ -34,8 +34,18 @@ from { opacity: 0; transform: translateY(20px); }
 to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes floating {
+0% { transform: translateY(0px); }
+50% { transform: translateY(-10px); }
+100% { transform: translateY(0px); }
+}
+
 .animate-fade-in {
 animation: fadeIn 0.8s ease-out forwards;
+}
+
+.floating-element {
+animation: floating 4s ease-in-out infinite;
 }
 
 /* Navigation */
@@ -260,7 +270,7 @@ header h1 { font-size: 2.5rem; }
 
 <div class="product-grid">
 <!-- Product 1 -->
-<div class="product-card animate-fade-in">
+<div class="product-card animate-fade-in floating-element" style="animation-delay: 0s;">
 <img src="cream.jpg" alt="Mela Mark Cream" class="product-image">
 <div class="product-content">
 <div>
@@ -284,7 +294,7 @@ header h1 { font-size: 2.5rem; }
 </div>
 
 <!-- Product 2 -->
-<div class="product-card animate-fade-in">
+<div class="product-card animate-fade-in floating-element" style="animation-delay: 0.5s;">
 <img src="oints.jpg" alt="Mela Mark S Ointment" class="product-image">
 <div class="product-content">
 <div>
@@ -308,7 +318,7 @@ header h1 { font-size: 2.5rem; }
 </div>
 
 <!-- Product 3 -->
-<div class="product-card animate-fade-in">
+<div class="product-card animate-fade-in floating-element" style="animation-delay: 1s;">
 <img src="soap.jpg" alt="Mela Mark Soap" class="product-image">
 <div class="product-content">
 <div>
@@ -335,22 +345,22 @@ header h1 { font-size: 2.5rem; }
 <h2 style="text-align: center; font-size: 2.5rem; color: var(--corporate-navy); margin-bottom: 50px;">Innovations on the Horizon</h2>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
 
-<div style="background: var(--bg-light); padding: 40px; border-radius: 12px; text-align: center; border: 2px dashed var(--brand-red);">
+<div class="floating-element" style="background: var(--bg-light); padding: 40px; border-radius: 12px; text-align: center; border: 2px dashed var(--brand-red); animation-delay: 0.2s;">
 <div style="font-size: 3rem; color: var(--brand-red); margin-bottom: 15px;">⏳</div>
 <h3 style="color: var(--corporate-navy); margin-bottom: 10px; font-size: 1.5rem;">Advanced Anti-Aging Serum</h3>
 <p style="color: var(--text-dark); font-size: 0.95rem;">Formulated with potent peptides and antioxidants to restore youthful radiance.</p>
 </div>
 
-<div style="background: var(--bg-light); padding: 40px; border-radius: 12px; text-align: center; border: 2px dashed var(--corporate-navy);">
+<div class="floating-element" style="background: var(--bg-light); padding: 40px; border-radius: 12px; text-align: center; border: 2px dashed var(--corporate-navy); animation-delay: 0.7s;">
 <div style="font-size: 3rem; color: var(--corporate-navy); margin-bottom: 15px;">⏳</div>
 <h3 style="color: var(--corporate-navy); margin-bottom: 10px; font-size: 1.5rem;">Broad-Spectrum Sun Shield</h3>
 <p style="color: var(--text-dark); font-size: 0.95rem;">Ultra-lightweight, invisible protection against UVA, UVB, and blue light.</p>
 </div>
 
-<div style="background: var(--bg-light); padding: 40px; border-radius: 12px; text-align: center; border: 2px dashed var(--text-dark);">
+<div class="floating-element" style="background: var(--bg-light); padding: 40px; border-radius: 12px; text-align: center; border: 2px dashed var(--text-dark); animation-delay: 1.2s;">
 <div style="font-size: 3rem; color: var(--text-dark); margin-bottom: 15px;">⏳</div>
-<h3 style="color: var(--corporate-navy); margin-bottom: 10px; font-size: 1.5rem;">Intensive Hydrating Lotion</h3>
-<p style="color: var(--text-dark); font-size: 0.95rem;">Deep moisture replenishment for compromised and extremely dry skin barriers.</p>
+<h3 style="color: var(--corporate-navy); margin-bottom: 10px; font-size: 1.5rem;">Essential Therapeutics</h3>
+<p style="color: var(--text-dark); font-size: 0.95rem;">High-efficacy Antibiotics and Cough Management solutions coming soon for medical practitioners.</p>
 </div>
 </div>
 </div>
@@ -359,30 +369,30 @@ header h1 { font-size: 2.5rem; }
 <!-- Comprehensive About Us Section -->
 <section id="about" style="padding: 100px 5%; background-color: var(--bg-light);">
 <div style="max-width: 1000px; margin: 0 auto; text-align: center;">
-<h2 style="font-size: 2.8rem; color: var(--corporate-navy); margin-bottom: 30px;">Setting Standards in Dermatological Excellence</h2>
+<h2 style="font-size: 2.8rem; color: var(--corporate-navy); margin-bottom: 30px;">Setting Standards in Dermatological & Therapeutic Excellence</h2>
 <p style="font-size: 1.1rem; color: var(--text-dark); line-height: 1.8; margin-bottom: 40px;">
-Headquartered in the dynamic pharmaceutical hub of Mumbai, <strong>ZuMark Pharma</strong> stands at the forefront of dermatological innovation. As one of India’s fastest-growing healthcare companies, we are dedicated to bridging the gap between advanced scientific research and accessible patient care. Our journey is defined by an unwavering commitment to quality, efficacy, and safety, ensuring that every formulation we deliver meets the highest global standards.
+Headquartered in the dynamic pharmaceutical hub of Mumbai, <strong>ZuMark Pharma</strong> stands as a beacon of excellence and rapid expansion in the Indian healthcare sector. We have swiftly ascended as a trusted cornerstone for both esteemed dermatologists and general physicians, delivering precision-engineered formulations that range from transformative skincare to vital antibiotics and cough management solutions. Our journey is defined by an uncompromising commitment to quality, efficacy, and safety, continuously expanding our footprint to ensure that premium healthcare remains accessible and transformative for all.
 </p>
 
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 50px;">
-<div style="padding: 30px; background: var(--white); border-radius: 12px; border-top: 4px solid var(--brand-red); box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+<div class="floating-element" style="padding: 30px; background: var(--white); border-radius: 12px; border-top: 4px solid var(--brand-red); box-shadow: 0 4px 6px rgba(0,0,0,0.05); animation-delay: 0.3s;">
 <h3 style="color: var(--corporate-navy); margin-bottom: 15px;">Trusted by Medical Experts</h3>
 <p style="font-size: 0.95rem; color: var(--text-dark);">
-Leading dermatologists and medical practitioners across the nation rely on ZuMark Pharma for precision-engineered formulations that deliver predictable, transformative therapeutic outcomes.
+Leading dermatologists and general physicians across the nation rely on ZuMark Pharma for precision formulations that deliver predictable, safe, and effective therapeutic outcomes.
 </p>
 </div>
 
-<div style="padding: 30px; background: var(--white); border-radius: 12px; border-top: 4px solid var(--corporate-navy); box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+<div class="floating-element" style="padding: 30px; background: var(--white); border-radius: 12px; border-top: 4px solid var(--corporate-navy); box-shadow: 0 4px 6px rgba(0,0,0,0.05); animation-delay: 0.8s;">
 <h3 style="color: var(--corporate-navy); margin-bottom: 15px;">Patient-Centric Innovation</h3>
 <p style="font-size: 0.95rem; color: var(--text-dark);">
-Millions of patients trust our products daily for their journey toward healthier skin. We prioritize patient well-being through rigorous quality control and compassionate healthcare solutions.
+Millions of patients trust our products daily. We prioritize patient well-being through rigorous quality control, robust supply chains, and compassionate healthcare solutions.
 </p>
 </div>
 
-<div style="padding: 30px; background: var(--white); border-radius: 12px; border-top: 4px solid var(--accent-gray); box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+<div class="floating-element" style="padding: 30px; background: var(--white); border-radius: 12px; border-top: 4px solid var(--accent-gray); box-shadow: 0 4px 6px rgba(0,0,0,0.05); animation-delay: 1.3s;">
 <h3 style="color: var(--corporate-navy); margin-bottom: 15px;">Chemist & Partner Confidence</h3>
 <p style="font-size: 0.95rem; color: var(--text-dark);">
-Our robust supply chain and uncompromised product integrity have made us a preferred partner for pharmacies and distributors nationwide, ensuring seamless availability.
+Our uncompromised product integrity and reliable distribution have made us a preferred partner for pharmacies and distributors nationwide, ensuring seamless availability.
 </p>
 </div>
 </div>
@@ -390,7 +400,7 @@ Our robust supply chain and uncompromised product integrity have made us a prefe
 <div style="background: linear-gradient(135deg, var(--corporate-navy) 0%, #0F172A 100%); color: var(--white); padding: 40px; border-radius: 12px;">
 <h3 style="font-size: 2rem; margin-bottom: 15px;">Our Promise of Purity and Precision</h3>
 <p style="font-size: 1rem; color: var(--accent-gray); max-width: 800px; margin: 0 auto; line-height: 1.6;">
-Driven by a vision to redefine skin health, ZuMark Pharma combines state-of-the-art manufacturing with ethical practices. We don't just create products; we build lasting trust across the medical fraternity and empower individuals to embrace healthier, confident lives.
+Driven by a vision to redefine healthcare, ZuMark Pharma combines state-of-the-art manufacturing with ethical practices. We don't just create products; we build lasting trust across the medical fraternity and empower individuals to embrace healthier, confident lives.
 </p>
 </div>
 </div>
@@ -399,7 +409,7 @@ Driven by a vision to redefine skin health, ZuMark Pharma combines state-of-the-
 <footer>
 <div class="footer-content">
 <h3>ZUMARK PHARMA</h3>
-<p style="margin-top: 10px; color: var(--accent-gray);">Dedicated to advancing dermatological health through quality, consistency, and trust.</p>
+<p style="margin-top: 10px; color: var(--accent-gray);">Dedicated to advancing healthcare through quality, consistency, and trust.</p>
 <div class="footer-contact">
 <p>Corporate Office: Nalasopara East, Mumbai Region, India</p>
 <p>Email: info@zumarkpharma.in | Helpline: +91 89089 08913</p>
