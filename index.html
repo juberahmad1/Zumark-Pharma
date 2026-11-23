@@ -644,9 +644,54 @@ background-color: var(--white);
 
 .inquiry-options {
 display: grid;
-grid-template-columns: 1fr 1fr;
+grid-template-columns: repeat(2, 1fr);
 gap: 15px;
-margin-top: 30px;
+margin-top: 20px;
+}
+
+.social-connect-box {
+margin-top: 25px;
+padding: 20px;
+background-color: var(--bg-light);
+border-radius: 10px;
+border-left: 4px solid var(--brand-red);
+text-align: center;
+}
+
+.social-connect-box h3 {
+color: var(--corporate-navy);
+font-size: 1.1rem;
+margin-bottom: 12px;
+}
+
+.social-links-row {
+display: flex;
+justify-content: center;
+gap: 12px;
+flex-wrap: wrap;
+}
+
+.social-btn {
+display: inline-block;
+padding: 10px 20px;
+border-radius: 6px;
+text-decoration: none;
+font-weight: 700;
+font-size: 0.9rem;
+color: var(--white);
+transition: transform 0.2s;
+}
+
+.social-btn:hover {
+transform: translateY(-2px);
+}
+
+.btn-facebook {
+background-color: #1877F2;
+}
+
+.btn-instagram {
+background-color: #E1306C;
 }
 
 .inquiry-btn-channel {
@@ -709,6 +754,10 @@ opacity: 0.95;
 }
 
 .footer-contact strong { color: var(--white); }
+
+@media (max-width: 576px) {
+.inquiry-options { grid-template-columns: 1fr; }
+}
 
 @media (min-width: 768px) {
 nav { padding: 0.8rem 4%; }
@@ -785,7 +834,7 @@ footer { padding: 60px 4%; }
 <li>Brightens & Evens Complexion</li>
 </ul>
 </div>
-<a href="https://wa.me/918908908913?text=I%20would%20like%20to%20inquire%20about%20Mela%20Mark%20Cream" class="inquire-btn" target="_blank">Inquire via WhatsApp</a>
+<a href="https://wa.me/917860279945?text=I%20would%20like%20to%20inquire%20about%20Mela%20Mark%20Cream" class="inquire-btn" target="_blank" rel="noopener noreferrer">Inquire via WhatsApp</a>
 </div>
 </div>
 
@@ -806,7 +855,7 @@ footer { padding: 60px 4%; }
 <li>Promotes Smooth, Clear Skin</li>
 </ul>
 </div>
-<a href="https://wa.me/918908908913?text=I%20would%20like%20to%20inquire%20about%20Mela%20Mark%20S%20Ointment" class="inquire-btn" target="_blank">Inquire via WhatsApp</a>
+<a href="https://wa.me/917860279945?text=I%20would%20like%20to%20inquire%20about%20Mela%20Mark%20S%20Ointment" class="inquire-btn" target="_blank" rel="noopener noreferrer">Inquire via WhatsApp</a>
 </div>
 </div>
 
@@ -823,7 +872,7 @@ footer { padding: 60px 4%; }
 <div class="salt-title">Usage</div>
 <p style="font-size: 0.85rem; margin-bottom: 15px; line-height: 1.5;">Gentle cleansing bar formulated to maintain skin hydration while supporting the Mela Mark treatment regimen.</p>
 </div>
-<a href="https://wa.me/918908908913?text=I%20would%20like%20to%20inquire%20about%20Mela%20Mark%20Soap" class="inquire-btn" target="_blank">Inquire via WhatsApp</a>
+<a href="https://wa.me/917860279945?text=I%20would%20like%20to%20inquire%20about%20Mela%20Mark%20Soap" class="inquire-btn" target="_blank" rel="noopener noreferrer">Inquire via WhatsApp</a>
 </div>
 </div>
 </div>
@@ -836,14 +885,14 @@ footer { padding: 60px 4%; }
 <p class="coming-soon-desc">Expanding our commitment to holistic family health with advanced therapeutic solutions.</p>
 <div class="soon-grid">
 <div class="soon-item">
-<div class="soon-icon">&💊;</div>
+<div class="soon-icon">&#128138;</div>
 <div class="soon-text">
 <h4>Advanced Antibiotics</h4>
 <p>High-efficacy formulations for reliable infection management.</p>
 </div>
 </div>
 <div class="soon-item">
-<div class="soon-icon">& syrups;</div>
+<div class="soon-icon">&#129653;</div>
 <div class="soon-text">
 <h4>Premium Cough Syrups</h4>
 <p>Soothing and effective relief for respiratory care.</p>
@@ -875,7 +924,7 @@ footer { padding: 60px 4%; }
 <li>Brightens & Evens Complexion</li>
 </ul>
 </div>
-<a href="https://wa.me/918908908913?text=I%20would%20like%20to%20inquire%20about%20Mela%20Mark%20Cream" class="inquire-btn" target="_blank">Inquire via WhatsApp</a>
+<a href="https://wa.me/917860279945?text=I%20would%20like%20to%20inquire%20about%20Mela%20Mark%20Cream" class="inquire-btn" target="_blank" rel="noopener noreferrer">Inquire via WhatsApp</a>
 </div>
 </div>
 
@@ -896,7 +945,7 @@ footer { padding: 60px 4%; }
 <li>Promotes Smooth, Clear Skin</li>
 </ul>
 </div>
-<a href="https://wa.me/918908908913?text=I%20would%20like%20to%20inquire%20about%20Mela%20Mark%20S%20Ointment" class="inquire-btn" target="_blank">Inquire via WhatsApp</a>
+<a href="https://wa.me/917860279945?text=I%20would%20like%20to%20inquire%20about%20Mela%20Mark%20S%20Ointment" class="inquire-btn" target="_blank" rel="noopener noreferrer">Inquire via WhatsApp</a>
 </div>
 </div>
 
@@ -913,7 +962,7 @@ footer { padding: 60px 4%; }
 <div class="salt-title">Usage</div>
 <p style="font-size: 0.85rem; margin-bottom: 15px; line-height: 1.5;">Gentle cleansing bar formulated to maintain skin hydration while supporting the Mela Mark treatment regimen.</p>
 </div>
-<a href="https://wa.me/918908908913?text=I%20would%20like%20to%20inquire%20about%20Mela%20Mark%20Soap" class="inquire-btn" target="_blank">Inquire via WhatsApp</a>
+<a href="https://wa.me/917860279945?text=I%20would%20like%20to%20inquire%20about%20Mela%20Mark%20Soap" class="inquire-btn" target="_blank" rel="noopener noreferrer">Inquire via WhatsApp</a>
 </div>
 </div>
 </div>
@@ -933,7 +982,7 @@ Operating from our corporate base in the Mumbai region, we ensure that every pro
 
 <div class="contact-card-box">
 <p><strong>Corporate Office:</strong> Gala No. 04, 184 Swami Vivekanand, Santosh Bhawan Naka, Nalasopara East, Mumbai region, India - 401209</p>
-<p><strong>Helpline:</strong> +91 89089 08913 | <strong>Email:</strong> info@zumarkpharma.in</p>
+<p><strong>Email:</strong> info@zumarkpharma.in</p>
 </div>
 
 <div class="stats-grid">
@@ -1035,15 +1084,23 @@ Looking ahead, we are expanding our portfolio to include critical antibiotics an
 <button type="submit" class="submit-btn" style="background-color: var(--brand-red); color: var(--white); border: none; border-radius: 6px; padding: 14px; font-size: 1.1rem; font-weight: 700; cursor: pointer; width: 100%;">Submit Official Inquiry</button>
 </form>
 
+<div class="social-connect-box">
+<h3>Connect With Us on Social Media</h3>
+<div class="social-links-row">
+<a href="https://www.facebook.com/share/1FXmKhGJAE/" class="social-btn btn-facebook" target="_blank" rel="noopener noreferrer">Facebook</a>
+<a href="https://www.instagram.com/zumarkpharma?avpt=ZnZ6cWphbzR6dHZj" class="social-btn btn-instagram" target="_blank" rel="noopener noreferrer">Instagram</a>
+</div>
+</div>
+
 <div style="text-align: center; margin: 30px 0 15px 0; font-weight: 700; color: var(--corporate-navy); font-size: 1.1rem;">OR CONNECT INSTANTLY</div>
 
 <div class="inquiry-options">
-<a href="https://wa.me/918908908913?text=Hello%20ZuMark%20Pharma,%20I%20would%20like%20to%20make%20an%20inquiry." class="inquiry-btn-channel btn-whatsapp" target="_blank">
-💬 Chat on WhatsApp
+<a href="https://wa.me/917860279945?text=Hello%20ZuMark%20Pharma,%20I%20would%20like%20to%20make%20an%20inquiry." class="inquiry-btn-channel btn-whatsapp" target="_blank" rel="noopener noreferrer">
+&#128172; Chat on WhatsApp
 <span>Fastest Response</span>
 </a>
 <a href="mailto:info@zumarkpharma.in?subject=Website Inquiry" class="inquiry-btn-channel btn-email">
-✉️ Send Direct Email
+&#9993;&#65039; Send Direct Email
 <span>Official Correspondence</span>
 </a>
 </div>
@@ -1056,7 +1113,11 @@ Looking ahead, we are expanding our portfolio to include critical antibiotics an
 <div class="footer-tagline">A New Vision for Better Health</div>
 <div class="footer-contact">
 <p style="margin-bottom: 10px;"><strong>Corporate Office:</strong> Gala No. 04, 184 Swami Vivekanand, Santosh Bhawan Naka, Nalasopara East, Mumbai region, India - 401209</p>
-<p><strong>Helpline:</strong> +91 89089 08913 &bull; <strong>Email:</strong> info@zumarkpharma.in</p>
+<p><strong>Email:</strong> info@zumarkpharma.in</p>
+<p style="margin-top: 10px;">
+<a href="https://www.facebook.com/share/1FXmKhGJAE/" target="_blank" rel="noopener noreferrer" style="color: #FFFFFF; text-decoration: underline; margin-right: 15px;">Facebook</a>
+<a href="https://www.instagram.com/zumarkpharma?avpt=ZnZ6cWphbzR6dHZj" target="_blank" rel="noopener noreferrer" style="color: #FFFFFF; text-decoration: underline;">Instagram</a>
+</p>
 </div>
 </footer>
 
