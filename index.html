@@ -194,11 +194,21 @@ color: var(--white);
 opacity: 0.95;
 }
 
+header .header-tagline {
+font-size: 1.1rem;
+font-weight: 600;
+margin-top: 15px;
+text-transform: uppercase;
+letter-spacing: 1px;
+opacity: 0.9;
+}
+
 .hero-cta-group {
 display: flex;
 justify-content: center;
 gap: 12px;
 flex-wrap: wrap;
+margin-top: 25px;
 }
 
 .hero-btn {
@@ -431,48 +441,51 @@ min-height: 75vh;
 max-width: 900px;
 margin: 0 auto;
 background: var(--white);
-padding: 30px 24px;
+padding: 35px 30px;
 border-radius: 12px;
-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
 border-top: 5px solid var(--corporate-navy);
 }
 
 .about-h2 {
-font-size: clamp(1.6rem, 4vw, 2.3rem);
+font-size: clamp(1.8rem, 4vw, 2.5rem);
 color: var(--corporate-navy);
-margin-bottom: 20px;
+margin-bottom: 25px;
 text-align: center;
+font-weight: 800;
 }
 
 .about-p {
-font-size: 0.96rem;
+font-size: 1rem;
 color: var(--text-dark);
-line-height: 1.75;
-margin-bottom: 16px;
+line-height: 1.8;
+margin-bottom: 20px;
 text-align: left;
 }
 
 .contact-card-box {
 background: var(--bg-light);
-padding: 18px;
-border-radius: 8px;
+padding: 20px;
+border-radius: 10px;
 border-left: 4px solid var(--brand-red);
-margin: 22px 0;
-font-size: 0.9rem;
+margin: 30px 0;
+font-size: 0.95px;
+font-size: 0.95rem;
 line-height: 1.7;
 color: var(--corporate-navy);
+box-shadow: 0 2px 8px rgba(0,0,0,0.03);
 }
 
 .stats-grid {
 display: grid;
 grid-template-columns: 1fr;
-gap: 15px;
-margin: 28px 0;
+gap: 20px;
+margin: 35px 0;
 text-align: center;
 }
 
 .stat-card {
-padding: 20px;
+padding: 25px;
 background: var(--bg-light);
 border-radius: 10px;
 border-top: 4px solid var(--brand-red);
@@ -484,9 +497,10 @@ border-top: 4px solid var(--brand-red);
 .promise-box {
 background-color: var(--brand-red);
 color: var(--white);
-padding: 25px;
+padding: 30px;
 border-radius: 10px;
 text-align: center;
+box-shadow: 0 4px 15px rgba(189,0,0,0.2);
 }
 
 .founder-section {
@@ -499,95 +513,213 @@ min-height: 75vh;
 max-width: 900px;
 margin: 0 auto;
 background: var(--white);
-padding: 30px;
+padding: 40px 30px;
+border-radius: 12px;
+border-top: 5px solid var(--brand-red);
+box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+}
+
+.founder-header-flex {
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
+gap: 25px;
+margin-bottom: 30px;
+padding-bottom: 25px;
+border-bottom: 1px solid var(--accent-gray);
+}
+
+.founder-photo {
+width: 140px;
+height: 140px;
+border-radius: 50%;
+object-fit: cover;
+border: 4px solid var(--brand-red);
+background-color: #E2E8F0;
+box-shadow: 0 6px 16px rgba(189, 0, 0, 0.2);
+}
+
+.founder-badge {
+display: inline-block;
+background-color: rgba(189, 0, 0, 0.1);
+color: var(--brand-red);
+font-weight: 700;
+font-size: 0.8rem;
+text-transform: uppercase;
+letter-spacing: 1px;
+padding: 6px 16px;
+border-radius: 20px;
+margin-bottom: 10px;
+}
+
+.founder-title {
+font-size: clamp(1.6rem, 4vw, 2.3rem);
+color: var(--corporate-navy);
+margin-bottom: 8px;
+font-weight: 800;
+}
+
+.founder-quote {
+font-style: italic;
+color: var(--brand-red);
+font-weight: 600;
+font-size: 1.05rem;
+background: rgba(189, 0, 0, 0.04);
+padding: 16px 20px;
+border-left: 4px solid var(--brand-red);
 border-radius: 8px;
-box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+margin-bottom: 30px;
+line-height: 1.6;
+}
+
+.founder-text p {
+font-size: 1rem;
+color: var(--text-dark);
+line-height: 1.8;
+margin-bottom: 20px;
+text-align: left;
 }
 
 .founder-contact-strip {
 background: var(--bg-light);
-padding: 15px;
-border-radius: 6px;
-border-left: 3px solid var(--brand-red);
-margin-top: 20px;
-font-size: 0.9rem;
-color: var(--Corporate-navy);
+padding: 20px;
+border-radius: 10px;
+border-left: 4px solid var(--corporate-navy);
+margin-top: 35px;
+font-size: 0.95rem;
+color: var(--corporate-navy);
+line-height: 1.7;
 }
 
 .form-section {
 padding: 50px 1rem;
 background-color: var(--bg-light);
+min-height: 75vh;
 }
 
 .form-container {
-max-width: 600px;
+max-width: 700px;
 margin: 0 auto;
 background: var(--white);
-padding: 30px;
-border-radius: 8px;
-box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+padding: 40px;
+border-radius: 12px;
+box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+border-top: 4px solid var(--brand-red);
+}
+
+.form-header {
+text-align: center;
+margin-bottom: 30px;
+}
+
+.form-header h2 {
+font-size: 1.8rem;
+color: var(--corporate-navy);
+margin-bottom: 8px;
+}
+
+.form-header p {
+font-size: 0.95rem;
+color: var(--text-dark);
 }
 
 .form-group {
-margin-bottom: 15px;
+margin-bottom: 20px;
 }
 
 .form-group label {
 display: block;
-margin-bottom: 5px;
+margin-bottom: 8px;
 font-weight: 600;
-font-size: 0.85rem;
-}
-
-.form-group input, .form-group textarea {
-width: 100%;
-padding: 10px;
-border: 1px solid var(--accent-gray);
-border-radius: 4px;
+color: var(--corporate-navy);
 font-size: 0.9rem;
 }
 
-.submit-btn {
+.form-group input, .form-group textarea, .form-group select {
 width: 100%;
-padding: 12px;
-background-color: var(--brand-red);
-color: var(--white);
-border: none;
-border-radius: 4px;
-font-weight: 700;
-cursor: pointer;
+padding: 12px 15px;
+border: 1px solid var(--accent-gray);
+border-radius: 6px;
+font-size: 0.95rem;
+color: var(--text-dark);
+transition: border-color 0.2s;
+background-color: var(--bg-light);
 }
+
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+border-color: var(--brand-red);
+outline: none;
+background-color: var(--white);
+}
+
+.inquiry-options {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 15px;
+margin-top: 30px;
+}
+
+.inquiry-btn-channel {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+padding: 15px;
+border-radius: 8px;
+text-decoration: none;
+font-weight: 700;
+font-size: 0.95rem;
+transition: transform 0.2s, box-shadow 0.2s;
+text-align: center;
+color: var(--white);
+}
+
+.inquiry-btn-channel span {
+font-size: 0.8rem;
+font-weight: 500;
+margin-top: 4px;
+opacity: 0.9;
+}
+
+.btn-whatsapp { background-color: #25D366; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2); }
+.btn-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(37, 211, 102, 0.3); }
+
+.btn-email { background-color: #EA4335; box-shadow: 0 4px 12px rgba(234, 67, 53, 0.2); }
+.btn-email:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(234, 67, 53, 0.3); }
 
 footer {
 background-color: var(--brand-red);
 color: var(--white);
-padding: 40px 1rem;
+padding: 50px 1rem;
 text-align: center;
 }
 
 .footer-main-title {
-font-size: 1.5rem;
+font-size: 1.8rem;
 font-weight: 800;
-margin-bottom: 6px;
+margin-bottom: 8px;
 letter-spacing: 0.5px;
 }
 
 .footer-tagline {
-font-size: 1.05rem;
+font-size: 1.15rem;
 font-weight: 500;
-margin-bottom: 20px;
+margin-bottom: 25px;
 opacity: 0.95;
 text-transform: uppercase;
-letter-spacing: 1px;
+letter-spacing: 1.5px;
 }
 
 .footer-contact {
-font-size: 0.9rem;
-line-height: 1.6;
-max-width: 600px;
+font-size: 1rem;
+line-height: 1.8;
+max-width: 700px;
 margin: 0 auto;
-opacity: 0.9;
+opacity: 0.95;
 }
+
+.footer-contact strong { color: var(--white); }
 
 @media (min-width: 768px) {
 nav { padding: 0.8rem 4%; }
@@ -597,12 +729,14 @@ header { padding: 80px 4%; }
 .product-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
 .coming-soon-section { padding: 60px 4%; }
 .about-section { padding: 60px 4%; }
-.about-content { padding: 45px; }
+.about-content { padding: 50px 45px; }
 .stats-grid { grid-template-columns: repeat(3, 1fr); }
 .founder-section { padding: 60px 4%; }
-.founder-container { padding: 45px; }
+.founder-container { padding: 50px 45px; }
+.founder-header-flex { flex-direction: row; text-align: left; }
 .form-section { padding: 60px 4%; }
-footer { padding: 50px 4%; }
+.form-container { padding: 50px; }
+footer { padding: 60px 4%; }
 }
 </style>
 </head>
@@ -635,6 +769,7 @@ footer { padding: 50px 4%; }
 <header class="animate-fade-in">
 <h1>A New Vision for Better Health</h1>
 <p>Welcome to ZuMark Pharma. We are committed to delivering premium quality dermatological and general healthcare formulations with uncompromising clarity and scientific precision.</p>
+<div class="header-tagline">ZUMARK PHARMA</div>
 <div class="hero-cta-group">
 <a class="hero-btn primary" onclick="openPage('products')">Explore Products</a>
 <a class="hero-btn secondary" onclick="openPage('about')">About ZuMark Pharma</a>
@@ -800,10 +935,38 @@ footer { padding: 50px 4%; }
 <section class="about-section">
 <div class="about-content">
 <h2 class="about-h2">About ZuMark Pharma</h2>
-<p class="about-p">ZuMark Pharma is a trusted and rapidly growing allopathic pharmaceutical company dedicated to making high-quality, safe, and affordable healthcare accessible to every family.</p>
+<p class="about-p">
+ZuMark Pharma is a trusted and rapidly growing allopathic pharmaceutical company dedicated to making high-quality, safe, and affordable healthcare accessible to every family. Specializing in the Dermatology and General Physician segments, we deliver clinically reliable, result-oriented formulations designed to meet everyday therapeutic needs without compromising on purity or safety.
+</p>
+<p class="about-p">
+Operating from our corporate base in the Mumbai region, we ensure that every product undergoes stringent quality control checks. Our commitment lies in building lasting trust with medical practitioners, chemists, and patients across India through ethical practices and continuous innovation.
+</p>
+
 <div class="contact-card-box">
 <p><strong>Corporate Office:</strong> Gala No. 04, 184 Swami Vivekanand, Santosh Bhawan Naka, Nalasopara East, Mumbai region, India</p>
-<p><strong>Email:</strong> info@zumarkpharma.in | <strong>Helpline:</strong> +91 89089 08913</p>
+<p><strong>Helpline:</strong> +91 89089 08913 | <strong>Email:</strong> info@zumarkpharma.in</p>
+</div>
+
+<div class="stats-grid">
+<div class="stat-card">
+<h3 style="color: var(--corporate-navy); margin-bottom: 10px; font-size: 1.15rem;">Quality Assured</h3>
+<p style="font-size: 0.9rem; color: var(--text-dark);">Stringent clinical standards for utmost patient safety.</p>
+</div>
+<div class="stat-card">
+<h3 style="color: var(--corporate-navy); margin-bottom: 10px; font-size: 1.15rem;">Doctor Trusted</h3>
+<p style="font-size: 0.9rem; color: var(--text-dark);">Formulations recommended by leading medical experts.</p>
+</div>
+<div class="stat-card">
+<h3 style="color: var(--corporate-navy); margin-bottom: 10px; font-size: 1.15rem;">Affordable Care</h3>
+<p style="font-size: 0.9rem; color: var(--text-dark);">Making premium healthcare accessible to every household.</p>
+</div>
+</div>
+
+<div class="promise-box">
+<h3 style="font-size: 1.5rem; margin-bottom: 10px;">Our Commitment</h3>
+<p style="font-size: 0.95rem; color: var(--white); opacity: 0.95; line-height: 1.6;">
+To continuously expand our therapeutic range while maintaining uncompromising excellence in pharmaceutical formulation.
+</p>
 </div>
 </div>
 </section>
@@ -812,9 +975,33 @@ footer { padding: 50px 4%; }
 <div id="page-founder" class="page-view">
 <section class="founder-section">
 <div class="founder-container">
-<h2>Leadership</h2>
+<div class="founder-header-flex">
+<img src="founder.jpg" alt="Founder & Director, ZuMark Pharma" class="founder-photo" onerror="this.src='1795191878034.png'">
+<div>
+<span class="founder-badge">Leadership & Vision</span>
+<h2 class="founder-title">Founder & Director</h2>
+<p style="color: var(--text-dark); font-size: 1rem;">Driving Excellence in Allopathic Healthcare</p>
+</div>
+</div>
+
+<div class="founder-quote">
+“Quality healthcare should never be a privilege—it must be accessible, reliable, and affordable for every family.”
+</div>
+
+<div class="founder-text">
+<p>
+As the Founder and Director of ZuMark Pharma, my mission is anchored in the belief that effective medical treatment should be within reach of every individual. With a deep understanding of the pharmaceutical landscape, I established ZuMark Pharma to bridge the gap between premium clinical formulations and everyday affordability.
+</p>
+<p>
+We focus intensely on Dermatology and General Physician care, ensuring that each product—from advanced creams to essential therapeutics—delivers tangible results. Operating from our headquarters in the Mumbai region, we maintain rigorous oversight of our distribution and quality standards, ensuring complete reliability for our partners and patients.
+</p>
+<p>
+Looking ahead, we are expanding our portfolio to include critical antibiotics and respiratory care, reinforcing our dedication to comprehensive community health.
+</p>
+</div>
+
 <div class="founder-contact-strip">
-<p><strong>Corporate Office:</strong> Gala No. 04, 184 Swami Vivekanand, Santosh Bhawan Naka, Nalasopara East, Mumbai region, India</p>
+<p><strong>Corporate Headquarters:</strong> Gala No. 04, 184 Swami Vivekanand, Santosh Bhawan Naka, Nalasopara East, Mumbai region, India</p>
 </div>
 </div>
 </section>
@@ -823,9 +1010,54 @@ footer { padding: 50px 4%; }
 <div id="page-contact" class="page-view">
 <section class="form-section">
 <div class="form-container">
-<form>
-<!-- Form fields -->
+<div class="form-header">
+<h2>Customer Inquiry & Support</h2>
+<p>Connect with us directly for product details, distributorship, or medical inquiries.</p>
+</div>
+
+<form action="https://api.web3forms.com/submit" method="POST">
+<input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+
+<div class="form-group">
+<label for="name">Your Name</label>
+<input type="text" id="name" name="name" required placeholder="Enter your full name">
+</div>
+<div class="form-group">
+<label for="email">Your Email Address</label>
+<input type="email" id="email" name="email" required placeholder="name@example.com">
+</div>
+<div class="form-group">
+<label for="phone">Phone Number</label>
+<input type="tel" id="phone" name="phone" required placeholder="Your contact number">
+</div>
+<div class="form-group">
+<label for="inquiry-type">Nature of Inquiry</label>
+<select id="inquiry-type" name="subject">
+<option value="Product Information">Product Information</option>
+<option value="Distributorship Opportunity">Distributorship / Business Partnership</option>
+<option value="Medical Feedback">Medical Practitioner Feedback</option>
+<option value="General Inquiry">General Inquiry</option>
+</select>
+</div>
+<div class="form-group">
+<label for="message">Detailed Message</label>
+<textarea id="message" name="message" rows="5" required placeholder="How can we assist you today?"></textarea>
+</div>
+<button type="submit" class="submit-btn" style="background-color: var(--brand-red); color: var(--white); border: none; border-radius: 6px; padding: 14px; font-size: 1.1rem; font-weight: 700; cursor: pointer; width: 100%;">Submit Official Inquiry</button>
 </form>
+
+<div style="text-align: center; margin: 30px 0 15px 0; font-weight: 700; color: var(--corporate-navy); font-size: 1.1rem;">OR CONNECT INSTANTLY</div>
+
+<div class="inquiry-options">
+<a href="https://wa.me/918908908913?text=Hello%20ZuMark%20Pharma,%20I%20would%20like%20to%20make%20an%20inquiry." class="inquiry-btn-channel btn-whatsapp" target="_blank">
+💬 Chat on WhatsApp
+<span>Fastest Response</span>
+</a>
+<a href="mailto:info@zumarkpharma.in?subject=Website Inquiry" class="inquiry-btn-channel btn-email">
+✉️ Send Direct Email
+<span>Official Correspondence</span>
+</a>
+</div>
 </div>
 </section>
 </div>
@@ -834,7 +1066,8 @@ footer { padding: 50px 4%; }
 <div class="footer-main-title">ZUMARK PHARMA</div>
 <div class="footer-tagline">A New Vision for Better Health</div>
 <div class="footer-contact">
-<p><strong>Corporate Office:</strong> Gala No. 04, 184 Swami Vivekanand, Santosh Bhawan Naka, Nalasopara East, Mumbai region, India</p>
+<p style="margin-bottom: 10px;"><strong>Corporate Office:</strong> Gala No. 04, 184 Swami Vivekanand, Santosh Bhawan Naka, Nalasopara East, Mumbai region, India</p>
+<p><strong>Helpline:</strong> +91 89089 08913 &bull; <strong>Email:</strong> info@zumarkpharma.in</p>
 </div>
 </footer>
 
