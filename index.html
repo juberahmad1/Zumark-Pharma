@@ -104,6 +104,9 @@ display: flex;
 align-items: center;
 gap: 8px;
 cursor: pointer;
+background-color: var(--brand-red);
+padding: 6px 12px;
+border-radius: 6px;
 }
 
 .logo-img {
@@ -113,8 +116,8 @@ width: auto;
 
 .brand-name {
 font-size: 1.1rem;
-font-weight: 700;
-color: var(--corporate-navy);
+font-weight: 800;
+color: var(--white);
 letter-spacing: -0.5px;
 }
 
@@ -301,6 +304,7 @@ font-size: 0.95rem;
 box-shadow: 0 3px 6px rgba(37, 211, 102, 0.2);
 }
 
+/* Coming Soon Section */
 .coming-soon-section {
 padding: 50px 1rem;
 background-color: #FFFFFF;
@@ -539,6 +543,13 @@ padding: 30px 1rem;
 text-align: center;
 }
 
+.footer-tagline {
+font-weight: 600;
+font-size: 1.1rem;
+margin-bottom: 8px;
+letter-spacing: 0.5px;
+}
+
 .footer-contact {
 margin-top: 10px;
 font-size: 0.85rem;
@@ -561,8 +572,7 @@ header { padding: 80px 4%; }
 .founder-container { padding: 45px; }
 .founder-header-flex { flex-direction: row; text-align: left; }
 .form-section { padding: 60px 4%; }
-.form-container { padding: 35px; }
-footer { padding: 40px 4%; }
+.footer { padding: 40px 4%; }
 }
 </style>
 </head>
@@ -577,7 +587,7 @@ footer { padding: 40px 4%; }
 <nav>
 <div class="logo-container" onclick="openPage('home')">
 <img src="1795191878034.png" alt="ZuMark Pharma Logo" class="logo-img">
-<span class="brand-name">ZUMARK PHARMA</span>
+<span class="brand-name" style="color: var(--white);">ZUMARK PHARMA</span>
 </div>
 <div class="nav-links">
 <a id="nav-home" class="active" onclick="openPage('home')">Home</a>
@@ -876,8 +886,8 @@ My vision for ZuMark Pharma goes beyond launching medicines—it is about earnin
 
 <footer>
 <div class="footer-content">
+<h3 class="footer-tagline">A new vision for better health.</h3>
 <h3 style="font-size: 1.3rem; margin-bottom: 4px;">ZUMARK PHARMA</h3>
-<p style="color: var(--accent-gray); font-size: 0.8rem;">Designed for Excellence in Healthcare.</p>
 <div class="footer-contact">
 <p><strong>Corporate Office:</strong> Nalasopara East, Mumbai Region, India</p>
 <p><strong>Email:</strong> info@zumarkpharma.in | <strong>Helpline:</strong> +91 89089 08913</p>
