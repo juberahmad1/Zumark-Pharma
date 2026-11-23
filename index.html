@@ -29,7 +29,7 @@ overflow-x: hidden;
 position: relative;
 }
 
-/* Background Floating Text */
+/* Background Floating Text - Only Zumark Pharma in Light Red */
 .bg-floating-text {
 position: fixed;
 top: 0;
@@ -39,7 +39,7 @@ height: 100%;
 z-index: -1;
 overflow: hidden;
 pointer-events: none;
-opacity: 0.05;
+opacity: 0.12; /* हल्का विजिबल रखने के लिए */
 display: flex;
 flex-direction: column;
 justify-content: space-around;
@@ -49,9 +49,14 @@ white-space: nowrap;
 .bg-text-line {
 font-size: 8rem;
 font-weight: 900;
-color: var(--corporate-navy);
+color: var(--brand-red); /* लाल रंग */
 text-transform: uppercase;
-animation: marquee 20s linear infinite;
+animation: marquee 25s linear infinite;
+}
+
+.bg-text-line.reverse {
+animation-direction: reverse;
+animation-duration: 30s;
 }
 
 @keyframes marquee {
@@ -346,10 +351,10 @@ header h1 { font-size: 3rem; }
 </head>
 <body>
 
-<!-- Background Floating Text Overlay -->
+<!-- Background Floating Text Overlay - Only Zumark Pharma -->
 <div class="bg-floating-text">
 <div class="bg-text-line">Zumark Pharma &bull; Zumark Pharma &bull; Zumark Pharma</div>
-<div class="bg-text-line" style="animation-direction: reverse; animation-duration: 25s;">Excellence in Healthcare &bull; Excellence in Healthcare &bull;</div>
+<div class="bg-text-line reverse">Zumark Pharma &bull; Zumark Pharma &bull; Zumark Pharma</div>
 <div class="bg-text-line">Zumark Pharma &bull; Zumark Pharma &bull; Zumark Pharma</div>
 </div>
 
@@ -544,7 +549,7 @@ Driven by a vision to redefine healthcare, ZuMark Pharma combines state-of-the-a
 <footer>
 <div class="footer-content">
 <h3 style="font-size: 2rem; margin-bottom: 10px;">ZUMARK PHARMA</h3>
-<p style="margin-top: 10px; color: var(--accent-gray); font-size: 1.1rem;">Dedicated to advancing healthcare through quality, consistency, and trust.</p>
+<p style="margin-top: 10px; color: var(--accent-gray); font-size: 1.1rem;">Designed for Excellence in Healthcare.</p>
 <div class="footer-contact">
 <p><strong>Corporate Office:</strong> Nalasopara East, Mumbai Region, India</p>
 <p><strong>Email:</strong> info@zumarkpharma.in | <strong>Helpline:</strong> +91 89089 08913</p>
