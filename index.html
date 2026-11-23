@@ -106,6 +106,7 @@ box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 display: flex;
 align-items: center;
 gap: 8px;
+cursor: pointer;
 }
 
 .logo-img {
@@ -128,16 +129,30 @@ gap: 12px;
 .nav-links a {
 text-decoration: none;
 color: var(--text-dark);
-font-weight: 500;
+font-weight: 600;
 font-size: 0.85rem;
-transition: color 0.3s;
+padding: 4px 8px;
+border-radius: 4px;
+transition: all 0.2s;
+cursor: pointer;
 }
 
-.nav-links a:hover {
+.nav-links a:hover, .nav-links a.active {
 color: var(--brand-red);
+background-color: rgba(189, 0, 0, 0.08);
 }
 
-/* Hero Section - Compact */
+/* Multi-Page View Containers */
+.page-view {
+display: none;
+animation: fadeIn 0.4s ease-out forwards;
+}
+
+.page-view.active {
+display: block;
+}
+
+/* Hero Section */
 header {
 background-color: var(--brand-red);
 color: var(--white);
@@ -157,9 +172,37 @@ line-height: 1.2;
 header p {
 font-size: clamp(0.9rem, 2vw, 1.1rem);
 max-width: 650px;
-margin: 0 auto;
+margin: 0 auto 20px auto;
 color: var(--white);
 opacity: 0.95;
+}
+
+.hero-cta-group {
+display: flex;
+justify-content: center;
+gap: 12px;
+flex-wrap: wrap;
+}
+
+.hero-btn {
+padding: 10px 20px;
+border-radius: 6px;
+font-weight: 700;
+font-size: 0.9rem;
+text-decoration: none;
+cursor: pointer;
+transition: transform 0.2s;
+}
+
+.hero-btn.primary {
+background-color: var(--white);
+color: var(--brand-red);
+}
+
+.hero-btn.secondary {
+background-color: rgba(255, 255, 255, 0.15);
+color: var(--white);
+border: 1px solid var(--white);
 }
 
 /* Products Section */
@@ -291,429 +334,65 @@ border: 2px dashed var(--brand-red);
 .horizon-card:nth-child(2) { border-color: var(--corporate-navy); }
 .horizon-card:nth-child(3) { border-color: var(--text-dark); }
 
-/* About Us Section */
+/* About Us Page */
 .about-section {
 padding: 50px 1rem;
 background-color: var(--bg-light);
+min-height: 75vh;
 }
 
 .about-content {
-max-width: 850px;
+max-width: 900px;
 margin: 0 auto;
-text-align: center;
+background: var(--white);
+padding: 30px 24px;
+border-radius: 12px;
+box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+border-top: 5px solid var(--corporate-navy);
 }
 
 .about-h2 {
-font-size: clamp(1.6rem, 4vw, 2.5rem);
+font-size: clamp(1.6rem, 4vw, 2.3rem);
 color: var(--corporate-navy);
-margin-bottom: 18px;
+margin-bottom: 20px;
+text-align: center;
 }
 
 .about-p {
-font-size: 0.95rem;
+font-size: 0.96rem;
 color: var(--text-dark);
-line-height: 1.7;
+line-height: 1.75;
 margin-bottom: 16px;
+text-align: left;
+}
+
+.contact-card-box {
+background: var(--bg-light);
+padding: 18px;
+border-radius: 8px;
+border-left: 4px solid var(--brand-red);
+margin: 22px 0;
+font-size: 0.9rem;
+line-height: 1.7;
+color: var(--corporate-navy);
 }
 
 .stats-grid {
 display: grid;
 grid-template-columns: 1fr;
 gap: 15px;
-margin: 30px 0;
+margin: 28px 0;
+text-align: center;
 }
 
 .stat-card {
 padding: 20px;
-background: var(--white);
+background: var(--bg-light);
 border-radius: 10px;
 border-top: 4px solid var(--brand-red);
-box-shadow: 0 3px 6px rgba(0,0,0,0.05);
 }
 
 .stat-card:nth-child(2) { border-color: var(--corporate-navy); }
-.stat-card:nth-child(3) { border-color: var(--accent-gray); }
+.stat-card:nth-child(3) { border-color: var(--text-dark); }
 
-.promise-box {
-background: linear-gradient(135deg, var(--corporate-navy) 0%, #0F172A 100%);
-color: var(--white);
-padding: 25px;
-border-radius: 10px;
-}
-
-/* Founder & Director Section */
-.founder-section {
-padding: 50px 1rem;
-background-color: var(--white);
-border-top: 1px solid var(--accent-gray);
-border-bottom: 1px solid var(--accent-gray);
-}
-
-.founder-container {
-max-width: 850px;
-margin: 0 auto;
-background: var(--bg-light);
-padding: 28px;
-border-radius: 12px;
-border-left: 5px solid var(--brand-red);
-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-}
-
-.founder-badge {
-display: inline-block;
-background-color: rgba(189, 0, 0, 0.1);
-color: var(--brand-red);
-font-weight: 700;
-font-size: 0.75rem;
-text-transform: uppercase;
-letter-spacing: 0.8px;
-padding: 5px 12px;
-border-radius: 20px;
-margin-bottom: 10px;
-}
-
-.founder-title {
-font-size: clamp(1.5rem, 4vw, 2.1rem);
-color: var(--corporate-navy);
-margin-bottom: 18px;
-}
-
-.founder-text p {
-font-size: 0.95rem;
-color: var(--text-dark);
-line-height: 1.7;
-margin-bottom: 15px;
-text-align: left;
-}
-
-.founder-contact-strip {
-margin-top: 22px;
-padding-top: 16px;
-border-top: 1px solid var(--accent-gray);
-font-size: 0.85rem;
-color: var(--corporate-navy);
-display: flex;
-flex-direction: column;
-gap: 6px;
-}
-
-/* Inquiry & Feedback Form */
-.form-section {
-padding: 50px 1rem;
-background-color: var(--bg-light);
-}
-
-.form-container {
-max-width: 650px;
-margin: 0 auto;
-background: var(--white);
-padding: 20px;
-border-radius: 10px;
-box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-}
-
-.form-group {
-margin-bottom: 15px;
-}
-
-.form-group label {
-display: block;
-margin-bottom: 6px;
-font-weight: 600;
-color: var(--corporate-navy);
-font-size: 0.85rem;
-}
-
-.form-group input, .form-group textarea {
-width: 100%;
-padding: 10px;
-border: 1px solid var(--accent-gray);
-border-radius: 5px;
-font-size: 0.9rem;
-background-color: var(--bg-light);
-}
-
-.submit-btn {
-width: 100%;
-padding: 12px;
-background-color: var(--brand-red);
-color: var(--white);
-border: none;
-border-radius: 5px;
-font-size: 1rem;
-font-weight: 700;
-cursor: pointer;
-}
-
-/* Footer */
-footer {
-background-color: var(--corporate-navy);
-color: var(--white);
-padding: 30px 1rem;
-text-align: center;
-}
-
-.footer-contact {
-margin-top: 10px;
-font-size: 0.85rem;
-color: var(--accent-gray);
-line-height: 1.5;
-}
-
-/* Tablet & Desktop Adjustments */
-@media (min-width: 768px) {
-nav { padding: 0.8rem 4%; }
-.nav-links { gap: 18px; }
-header { padding: 80px 4%; }
-.products-section { padding: 60px 4%; }
-.product-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-.coming-soon-section { padding: 60px 4%; }
-.coming-soon-grid { grid-template-columns: repeat(3, 1fr); }
-.about-section { padding: 80px 4%; }
-.stats-grid { grid-template-columns: repeat(3, 1fr); }
-.founder-section { padding: 70px 4%; }
-.founder-container { padding: 40px; }
-.founder-contact-strip { flex-direction: row; flex-wrap: wrap; justify-content: space-between; }
-.form-section { padding: 60px 4%; }
-.form-container { padding: 30px; }
-footer { padding: 40px 4%; }
-}
-</style>
-</head>
-<body>
-
-<!-- Background Floating Text Overlay - Only Zumark Pharma -->
-<div class="bg-floating-text">
-<div class="bg-text-line">Zumark Pharma &bull; Zumark Pharma &bull; Zumark Pharma</div>
-<div class="bg-text-line reverse">Zumark Pharma &bull; Zumark Pharma &bull; Zumark Pharma</div>
-<div class="bg-text-line">Zumark Pharma &bull; Zumark Pharma &bull; Zumark Pharma</div>
-</div>
-
-<nav>
-<div class="logo-container">
-<img src="1795191878034.png" alt="ZuMark Pharma Logo" class="logo-img">
-<span class="brand-name">ZUMARK PHARMA</span>
-</div>
-<div class="nav-links">
-<a href="#home">Home</a>
-<a href="#products">Products</a>
-<a href="#about">About</a>
-<a href="#founder">Founder</a>
-<a href="#contact">Contact</a>
-</div>
-</nav>
-
-<header id="home" class="animate-fade-in floating-element">
-<h1 class="floating-element">A New Vision for Better Health</h1>
-<p>Welcome to ZuMark Pharma. We are committed to delivering premium quality dermatological and skincare solutions with uncompromising clarity and scientific precision.</p>
-</header>
-
-<section id="products" class="products-section">
-<h2 class="section-title animate-fade-in floating-element">Our Premier Product Range</h2>
-
-<div class="product-grid">
-<!-- Product 1 -->
-<div class="product-card animate-fade-in floating-element">
-<img src="cream.jpg" alt="Mela Mark Cream" class="product-image">
-<div class="product-content">
-<div>
-<h3>Mela Mark Cream</h3>
-<p class="tagline">For Pigmentation & Uneven Skin Tone</p>
-
-<div class="salt-section">
-<div class="salt-title">Active Composition</div>
-<div class="salt-list">Betamethasone Valerate, Clindamycin Phosphate, Nicotinamide, Vitamin E Acetate</div>
-</div>
-
-<div class="salt-title">Targeted Benefits</div>
-<ul class="benefits-list">
-<li>Reduces Dark Spots</li>
-<li>Effective Melasma Care</li>
-<li>Brightens & Evens Complexion</li>
-</ul>
-</div>
-<a href="https://wa.me/918908908913?text=I%20would%20like%20to%20inquire%20about%20Mela%20Mark%20Cream" class="inquire-btn" target="_blank">Inquire via WhatsApp</a>
-</div>
-</div>
-
-<!-- Product 2 -->
-<div class="product-card animate-fade-in floating-element">
-<img src="oints.jpg" alt="Mela Mark S Ointment" class="product-image">
-<div class="product-content">
-<div>
-<h3>Mela Mark S Ointment</h3>
-<p class="tagline">Advanced Pigmentation & Dark Spot Therapy</p>
-
-<div class="salt-section">
-<div class="salt-title">Active Composition</div>
-<div class="salt-list">Clobetasol Propionate & Salicylic Acid</div>
-</div>
-
-<div class="salt-title">Targeted Benefits</div>
-<ul class="benefits-list">
-<li>Lightens Stubborn Pigmentation</li>
-<li>Soothes Skin Irritation</li>
-<li>Promotes Smooth, Clear Skin</li>
-</ul>
-</div>
-<a href="https://wa.me/918908908913?text=I%20would%20like%20to%20inquire%20about%20Mela%20Mark%20S%20Ointment" class="inquire-btn" target="_blank">Inquire via WhatsApp</a>
-</div>
-</div>
-
-<!-- Product 3 -->
-<div class="product-card animate-fade-in floating-element">
-<img src="soap.jpg" alt="Mela Mark Soap" class="product-image">
-<div class="product-content">
-<div>
-<h3>Mela Mark Soap</h3>
-<p class="tagline">Premium Dermatological Cleansing Bar</p>
-
-<div class="salt-section">
-<div class="salt-title">Key Ingredients</div>
-<div class="salt-list">Enriched with Almond Oil, Coconut Oil, Aloe Vera Extract, and Glycerin</div>
-</div>
-
-<div class="salt-title">Usage</div>
-<p style="font-size: 0.85rem; margin-bottom: 15px; line-height: 1.5;">Gentle cleansing bar formulated to maintain skin hydration while supporting the Mela Mark treatment regimen.</p>
-</div>
-<a href="https://wa.me/918908908913?text=I%20would%20like%20to%20inquire%20about%20Mela%20Mark%20Soap" class="inquire-btn" target="_blank">Inquire via WhatsApp</a>
-</div>
-</div>
-</div>
-</section>
-
-<!-- Coming Soon Section -->
-<section class="coming-soon-section">
-<div style="max-width: 1200px; margin: 0 auto;">
-<h2 class="floating-element" style="text-align: center; font-size: clamp(1.6rem, 4vw, 2.5rem); color: var(--corporate-navy); margin-bottom: 30px;">Innovations on the Horizon</h2>
-<div class="coming-soon-grid">
-
-<div class="horizon-card floating-element">
-<div style="font-size: 2.5rem; color: var(--brand-red); margin-bottom: 8px;">⏳</div>
-<h3 style="color: var(--corporate-navy); margin-bottom: 8px; font-size: 1.3rem;">Advanced Anti-Aging Serum</h3>
-<p style="color: var(--text-dark); font-size: 0.85rem; line-height: 1.5;">Formulated with potent peptides and antioxidants to restore youthful radiance.</p>
-</div>
-
-<div class="horizon-card floating-element">
-<div style="font-size: 2.5rem; color: var(--corporate-navy); margin-bottom: 8px;">⏳</div>
-<h3 style="color: var(--corporate-navy); margin-bottom: 8px; font-size: 1.3rem;">Broad-Spectrum Sun Shield</h3>
-<p style="color: var(--text-dark); font-size: 0.85rem; line-height: 1.5;">Ultra-lightweight, invisible protection against UVA, UVB, and blue light.</p>
-</div>
-
-<div class="horizon-card floating-element">
-<div style="font-size: 2.5rem; color: var(--text-dark); margin-bottom: 8px;">⏳</div>
-<h3 style="color: var(--corporate-navy); margin-bottom: 8px; font-size: 1.3rem;">Essential Therapeutics</h3>
-<p style="color: var(--text-dark); font-size: 0.85rem; line-height: 1.5;">High-efficacy Antibiotics and Cough Management solutions coming soon for medical practitioners.</p>
-</div>
-</div>
-</div>
-</section>
-
-<!-- Comprehensive About Us Section -->
-<section id="about" class="about-section">
-<div class="about-content">
-<h2 class="about-h2 floating-element">About ZuMark Pharma</h2>
-<p class="about-p">
-<strong>ZuMark Pharma</strong> is a trusted and rapidly growing allopathic pharmaceutical company dedicated to making high-quality, safe, and affordable healthcare accessible to every family. Specializing in the Dermatology and General Physician segments, we deliver clinically reliable, result-oriented formulations designed to meet everyday therapeutic needs without compromising on purity or safety.
-</p>
-<p class="about-p">
-Headquartered at our Corporate Office in <strong>Nalasopara East, Mumbai Region, India</strong>, we operate at the heart of India’s premier pharmaceutical hub. Every ZuMark product undergoes stringent quality control checks and adheres to strict ethical and clinical standards—earning the lasting trust of doctors, chemists, and patients alike.
-</p>
-<p class="about-p">
-Our vision is to build a healthcare brand synonymous with quality, efficacy, and genuine care. For product inquiries or business partnerships, connect with us directly.
-</p>
-
-<div class="stats-grid">
-<div class="stat-card floating-element">
-<h3 style="color: var(--corporate-navy); margin-bottom: 8px; font-size: 1.1rem;">Trusted by Medical Experts</h3>
-<p style="font-size: 0.85rem; color: var(--text-dark);">Leading dermatologists and general physicians rely on ZuMark Pharma for precision formulations.</p>
-</div>
-
-<div class="stat-card floating-element">
-<h3 style="color: var(--corporate-navy); margin-bottom: 8px; font-size: 1.1rem;">Patient-Centric Innovation</h3>
-<p style="font-size: 0.85rem; color: var(--text-dark);">Safe, effective, and affordable allopathic healthcare accessible to every family.</p>
-</div>
-
-<div class="stat-card floating-element">
-<h3 style="color: var(--corporate-navy); margin-bottom: 8px; font-size: 1.1rem;">Partner Confidence</h3>
-<p style="font-size: 0.85rem; color: var(--text-dark);">Stringent quality control and ethical clinical standards across India.</p>
-</div>
-</div>
-
-<div class="promise-box">
-<h3 style="font-size: 1.5rem; margin-bottom: 8px;">Our Promise of Purity and Precision</h3>
-<p style="font-size: 0.85rem; color: var(--accent-gray); line-height: 1.5;">
-Combining state-of-the-art manufacturing infrastructure in the Mumbai pharma belt with ethical practices to build lasting trust across the medical fraternity.
-</p>
-</div>
-</div>
-</section>
-
-<!-- Founder & Director Section -->
-<section id="founder" class="founder-section">
-<div class="founder-container animate-fade-in">
-<span class="founder-badge">Leadership & Vision</span>
-<h2 class="founder-title">About Me — Founder &amp; Director, ZuMark Pharma</h2>
-<div class="founder-text">
-<p>
-As the Founder and Director of <strong>ZuMark Pharma</strong>, my journey in the pharmaceutical industry is driven by a simple yet powerful conviction: quality healthcare should never be a privilege—it must be accessible, reliable, and affordable for every family. With a medical background and deep hands-on experience in the healthcare ecosystem, I established ZuMark Pharma to bridge the gap between clinical efficacy and patient affordability.
-</p>
-<p>
-Under my leadership, ZuMark Pharma focuses sharply on the <strong>Dermatology and General Physician</strong> segments. Having closely observed the everyday challenges faced by both doctors and patients, I wanted to build a company that delivers targeted, result-oriented formulations without compromising on purity or safety. Every product that carries the ZuMark name is backed by rigorous quality checks, scientifically validated active ingredients, and ethical pharmaceutical standards.
-</p>
-<p>
-Operating out of our Corporate Office in <strong>Nalasopara East, Mumbai Region, India</strong>, I oversee our strategic growth, product development, and distribution partnerships. Being anchored in the Mumbai pharma belt allows us to leverage world-class manufacturing infrastructure while building a responsive supply network for chemists, distributors, and healthcare professionals across India.
-</p>
-<p>
-My vision for ZuMark Pharma goes beyond launching medicines—it is about earning the long-term trust of the medical fraternity and creating a brand synonymous with integrity, care, and clinical excellence. Whether you are a healthcare professional, a business partner, or someone seeking product information, I welcome you to connect with us directly.
-</p>
-</div>
-<div class="founder-contact-strip">
-<span><strong>Corporate Office:</strong> Nalasopara East, Mumbai Region, India</span>
-<span><strong>Email:</strong> info@zumarkpharma.in</span>
-<span><strong>Helpline:</strong> +91 89089 08913</span>
-</div>
-</div>
-</section>
-
-<!-- Customer Inquiry & Feedback Section -->
-<section id="contact" class="form-section">
-<div class="form-container">
-<h2 style="text-align: center; font-size: 1.6rem; color: var(--corporate-navy); margin-bottom: 10px;">Customer Inquiry & Feedback</h2>
-<p style="text-align: center; color: var(--text-dark); font-size: 0.85rem; margin-bottom: 25px;">We value your thoughts. Please fill out the form below.</p>
-<form action="https://api.web3forms.com/submit" method="POST">
-<input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
-<div class="form-group">
-<label for="name">Your Name</label>
-<input type="text" id="name" name="name" required placeholder="Enter your name">
-</div>
-<div class="form-group">
-<label for="email">Your Email</label>
-<input type="email" id="email" name="email" required placeholder="Enter your email">
-</div>
-<div class="form-group">
-<label for="subject">Subject</label>
-<input type="text" id="subject" name="subject" required placeholder="Inquiry or Feedback">
-</div>
-<div class="form-group">
-<label for="message">Message</label>
-<textarea id="message" name="message" rows="4" required placeholder="Write your message here..."></textarea>
-</div>
-<button type="submit" class="submit-btn">Send Message</button>
-</form>
-</div>
-</section>
-
-<footer>
-<div class="footer-content">
-<h3 style="font-size: 1.3rem; margin-bottom: 4px;">ZUMARK PHARMA</h3>
-<p style="color: var(--accent-gray); font-size: 0.8rem;">Designed for Excellence in Healthcare.</p>
-<div class="footer-contact">
-<p><strong>Corporate Office:</strong> Nalasopara East, Mumbai Region, India</p>
-<p><strong>Email:</strong> info@zumarkpharma.in | <strong>Helpline:</strong> +91 89089 08913</p>
-</div>
-</div>
-</footer>
-
-</body>
-</html>
+.promise-box
