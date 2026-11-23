@@ -122,7 +122,7 @@ letter-spacing: -0.5px;
 
 .nav-links {
 display: flex;
-gap: 10px;
+gap: 12px;
 }
 
 .nav-links a {
@@ -306,21 +306,21 @@ text-align: center;
 .about-h2 {
 font-size: clamp(1.6rem, 4vw, 2.5rem);
 color: var(--corporate-navy);
-margin-bottom: 15px;
+margin-bottom: 18px;
 }
 
 .about-p {
 font-size: 0.95rem;
 color: var(--text-dark);
-line-height: 1.6;
-margin-bottom: 25px;
+line-height: 1.7;
+margin-bottom: 16px;
 }
 
 .stats-grid {
 display: grid;
 grid-template-columns: 1fr;
 gap: 15px;
-margin-bottom: 30px;
+margin: 30px 0;
 }
 
 .stat-card {
@@ -341,16 +341,72 @@ padding: 25px;
 border-radius: 10px;
 }
 
+/* Founder & Director Section */
+.founder-section {
+padding: 50px 1rem;
+background-color: var(--white);
+border-top: 1px solid var(--accent-gray);
+border-bottom: 1px solid var(--accent-gray);
+}
+
+.founder-container {
+max-width: 850px;
+margin: 0 auto;
+background: var(--bg-light);
+padding: 28px;
+border-radius: 12px;
+border-left: 5px solid var(--brand-red);
+box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.founder-badge {
+display: inline-block;
+background-color: rgba(189, 0, 0, 0.1);
+color: var(--brand-red);
+font-weight: 700;
+font-size: 0.75rem;
+text-transform: uppercase;
+letter-spacing: 0.8px;
+padding: 5px 12px;
+border-radius: 20px;
+margin-bottom: 10px;
+}
+
+.founder-title {
+font-size: clamp(1.5rem, 4vw, 2.1rem);
+color: var(--corporate-navy);
+margin-bottom: 18px;
+}
+
+.founder-text p {
+font-size: 0.95rem;
+color: var(--text-dark);
+line-height: 1.7;
+margin-bottom: 15px;
+text-align: left;
+}
+
+.founder-contact-strip {
+margin-top: 22px;
+padding-top: 16px;
+border-top: 1px solid var(--accent-gray);
+font-size: 0.85rem;
+color: var(--corporate-navy);
+display: flex;
+flex-direction: column;
+gap: 6px;
+}
+
 /* Inquiry & Feedback Form */
 .form-section {
 padding: 50px 1rem;
-background-color: var(--white);
+background-color: var(--bg-light);
 }
 
 .form-container {
 max-width: 650px;
 margin: 0 auto;
-background: var(--bg-light);
+background: var(--white);
 padding: 20px;
 border-radius: 10px;
 box-shadow: 0 3px 10px rgba(0,0,0,0.05);
@@ -374,7 +430,7 @@ padding: 10px;
 border: 1px solid var(--accent-gray);
 border-radius: 5px;
 font-size: 0.9rem;
-background-color: var(--white);
+background-color: var(--bg-light);
 }
 
 .submit-btn {
@@ -407,6 +463,7 @@ line-height: 1.5;
 /* Tablet & Desktop Adjustments */
 @media (min-width: 768px) {
 nav { padding: 0.8rem 4%; }
+.nav-links { gap: 18px; }
 header { padding: 80px 4%; }
 .products-section { padding: 60px 4%; }
 .product-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
@@ -414,6 +471,9 @@ header { padding: 80px 4%; }
 .coming-soon-grid { grid-template-columns: repeat(3, 1fr); }
 .about-section { padding: 80px 4%; }
 .stats-grid { grid-template-columns: repeat(3, 1fr); }
+.founder-section { padding: 70px 4%; }
+.founder-container { padding: 40px; }
+.founder-contact-strip { flex-direction: row; flex-wrap: wrap; justify-content: space-between; }
 .form-section { padding: 60px 4%; }
 .form-container { padding: 30px; }
 footer { padding: 40px 4%; }
@@ -438,6 +498,7 @@ footer { padding: 40px 4%; }
 <a href="#home">Home</a>
 <a href="#products">Products</a>
 <a href="#about">About</a>
+<a href="#founder">Founder</a>
 <a href="#contact">Contact</a>
 </div>
 </nav>
@@ -551,33 +612,66 @@ footer { padding: 40px 4%; }
 <!-- Comprehensive About Us Section -->
 <section id="about" class="about-section">
 <div class="about-content">
-<h2 class="about-h2 floating-element">Setting Standards in Dermatological & Therapeutic Excellence</h2>
+<h2 class="about-h2 floating-element">About ZuMark Pharma</h2>
 <p class="about-p">
-Headquartered in the dynamic pharmaceutical hub of Mumbai, <strong>ZuMark Pharma</strong> stands as a beacon of excellence and rapid expansion in the Indian healthcare sector. We have swiftly ascended as a trusted cornerstone for both esteemed dermatologists and general physicians, delivering precision-engineered formulations.
+<strong>ZuMark Pharma</strong> is a trusted and rapidly growing allopathic pharmaceutical company dedicated to making high-quality, safe, and affordable healthcare accessible to every family. Specializing in the Dermatology and General Physician segments, we deliver clinically reliable, result-oriented formulations designed to meet everyday therapeutic needs without compromising on purity or safety.
+</p>
+<p class="about-p">
+Headquartered at our Corporate Office in <strong>Nalasopara East, Mumbai Region, India</strong>, we operate at the heart of India’s premier pharmaceutical hub. Every ZuMark product undergoes stringent quality control checks and adheres to strict ethical and clinical standards—earning the lasting trust of doctors, chemists, and patients alike.
+</p>
+<p class="about-p">
+Our vision is to build a healthcare brand synonymous with quality, efficacy, and genuine care. For product inquiries or business partnerships, connect with us directly.
 </p>
 
 <div class="stats-grid">
 <div class="stat-card floating-element">
 <h3 style="color: var(--corporate-navy); margin-bottom: 8px; font-size: 1.1rem;">Trusted by Medical Experts</h3>
-<p style="font-size: 0.85rem; color: var(--text-dark);">Leading dermatologists rely on ZuMark Pharma for precision formulations.</p>
+<p style="font-size: 0.85rem; color: var(--text-dark);">Leading dermatologists and general physicians rely on ZuMark Pharma for precision formulations.</p>
 </div>
 
 <div class="stat-card floating-element">
 <h3 style="color: var(--corporate-navy); margin-bottom: 8px; font-size: 1.1rem;">Patient-Centric Innovation</h3>
-<p style="font-size: 0.85rem; color: var(--text-dark);">Millions of patients trust our products daily for safe healthcare solutions.</p>
+<p style="font-size: 0.85rem; color: var(--text-dark);">Safe, effective, and affordable allopathic healthcare accessible to every family.</p>
 </div>
 
 <div class="stat-card floating-element">
 <h3 style="color: var(--corporate-navy); margin-bottom: 8px; font-size: 1.1rem;">Partner Confidence</h3>
-<p style="font-size: 0.85rem; color: var(--text-dark);">Uncompromised product integrity makes us a preferred partner nationwide.</p>
+<p style="font-size: 0.85rem; color: var(--text-dark);">Stringent quality control and ethical clinical standards across India.</p>
 </div>
 </div>
 
 <div class="promise-box">
 <h3 style="font-size: 1.5rem; margin-bottom: 8px;">Our Promise of Purity and Precision</h3>
 <p style="font-size: 0.85rem; color: var(--accent-gray); line-height: 1.5;">
-Combined state-of-the-art manufacturing with ethical practices to build lasting trust across the medical fraternity.
+Combining state-of-the-art manufacturing infrastructure in the Mumbai pharma belt with ethical practices to build lasting trust across the medical fraternity.
 </p>
+</div>
+</div>
+</section>
+
+<!-- Founder & Director Section -->
+<section id="founder" class="founder-section">
+<div class="founder-container animate-fade-in">
+<span class="founder-badge">Leadership & Vision</span>
+<h2 class="founder-title">About Me — Founder &amp; Director, ZuMark Pharma</h2>
+<div class="founder-text">
+<p>
+As the Founder and Director of <strong>ZuMark Pharma</strong>, my journey in the pharmaceutical industry is driven by a simple yet powerful conviction: quality healthcare should never be a privilege—it must be accessible, reliable, and affordable for every family. With a medical background and deep hands-on experience in the healthcare ecosystem, I established ZuMark Pharma to bridge the gap between clinical efficacy and patient affordability.
+</p>
+<p>
+Under my leadership, ZuMark Pharma focuses sharply on the <strong>Dermatology and General Physician</strong> segments. Having closely observed the everyday challenges faced by both doctors and patients, I wanted to build a company that delivers targeted, result-oriented formulations without compromising on purity or safety. Every product that carries the ZuMark name is backed by rigorous quality checks, scientifically validated active ingredients, and ethical pharmaceutical standards.
+</p>
+<p>
+Operating out of our Corporate Office in <strong>Nalasopara East, Mumbai Region, India</strong>, I oversee our strategic growth, product development, and distribution partnerships. Being anchored in the Mumbai pharma belt allows us to leverage world-class manufacturing infrastructure while building a responsive supply network for chemists, distributors, and healthcare professionals across India.
+</p>
+<p>
+My vision for ZuMark Pharma goes beyond launching medicines—it is about earning the long-term trust of the medical fraternity and creating a brand synonymous with integrity, care, and clinical excellence. Whether you are a healthcare professional, a business partner, or someone seeking product information, I welcome you to connect with us directly.
+</p>
+</div>
+<div class="founder-contact-strip">
+<span><strong>Corporate Office:</strong> Nalasopara East, Mumbai Region, India</span>
+<span><strong>Email:</strong> info@zumarkpharma.in</span>
+<span><strong>Helpline:</strong> +91 89089 08913</span>
 </div>
 </div>
 </section>
