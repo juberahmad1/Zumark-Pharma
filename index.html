@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZuMark Pharma&reg; | Corporate Excellence in Healthcare</title>
+<title>ZuMark Pharma | Corporate Excellence in Healthcare</title>
 <style>
 :root {
 --brand-red: #BD0000;
@@ -119,11 +119,6 @@ font-weight: 800;
 color: var(--white);
 letter-spacing: -0.5px;
 line-height: 1;
-}
-
-.brand-name sup, .header-tagline sup, .footer-main-title sup {
-font-size: 0.65em;
-vertical-align: super;
 }
 
 .logo-tagline {
@@ -604,4 +599,643 @@ text-align: left;
 .founder-contact-strip {
 background: var(--bg-light);
 padding: 20px;
-border-radius:
+border-radius: 10px;
+border-left: 4px solid var(--corporate-navy);
+margin-top: 35px;
+font-size: 0.95rem;
+color: var(--corporate-navy);
+line-height: 1.7;
+}
+
+.form-section {
+padding: 50px 1rem;
+background-color: var(--bg-light);
+min-height: 75vh;
+}
+
+.form-container {
+max-width: 700px;
+margin: 0 auto;
+background: var(--white);
+padding: 40px;
+border-radius: 12px;
+box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+border-top: 4px solid var(--brand-red);
+}
+
+.form-header {
+text-align: center;
+margin-bottom: 30px;
+}
+
+.form-header h2 {
+font-size: 1.8rem;
+color: var(--corporate-navy);
+margin-bottom: 8px;
+}
+
+.form-header p {
+font-size: 0.95rem;
+color: var(--text-dark);
+}
+
+.form-group {
+margin-bottom: 20px;
+}
+
+.form-group label {
+display: block;
+margin-bottom: 8px;
+font-weight: 600;
+color: var(--corporate-navy);
+font-size: 0.9rem;
+}
+
+.form-group input, .form-group textarea, .form-group select {
+width: 100%;
+padding: 12px 15px;
+border: 1px solid var(--accent-gray);
+border-radius: 6px;
+font-size: 0.95rem;
+color: var(--text-dark);
+transition: border-color 0.2s;
+background-color: var(--bg-light);
+}
+
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+border-color: var(--brand-red);
+outline: none;
+background-color: var(--white);
+}
+
+.inquiry-options {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 15px;
+margin-top: 20px;
+}
+
+.social-connect-box {
+margin-top: 25px;
+padding: 20px;
+background-color: var(--bg-light);
+border-radius: 10px;
+border-left: 4px solid var(--brand-red);
+text-align: center;
+}
+
+.social-connect-box h3 {
+color: var(--corporate-navy);
+font-size: 1.1rem;
+margin-bottom: 12px;
+}
+
+.social-links-row {
+display: flex;
+justify-content: center;
+gap: 12px;
+flex-wrap: wrap;
+}
+
+.social-btn {
+display: inline-block;
+padding: 10px 20px;
+border-radius: 6px;
+text-decoration: none;
+font-weight: 700;
+font-size: 0.9rem;
+color: var(--white);
+transition: transform 0.2s;
+}
+
+.social-btn:hover {
+transform: translateY(-2px);
+}
+
+.btn-facebook {
+background-color: #1877F2;
+}
+
+.btn-instagram {
+background-color: #E1306C;
+}
+
+.inquiry-btn-channel {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+padding: 15px;
+border-radius: 8px;
+text-decoration: none;
+font-weight: 700;
+font-size: 0.95rem;
+transition: transform 0.2s, box-shadow 0.2s;
+text-align: center;
+color: var(--white);
+}
+
+.inquiry-btn-channel span {
+font-size: 0.8rem;
+font-weight: 500;
+margin-top: 4px;
+opacity: 0.9;
+}
+
+.btn-whatsapp { background-color: #25D366; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2); }
+.btn-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(37, 211, 102, 0.3); }
+
+.btn-email { background-color: #EA4335; box-shadow: 0 4px 12px rgba(234, 67, 53, 0.2); }
+.btn-email:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(234, 67, 53, 0.3); }
+
+footer {
+background-color: var(--brand-red);
+color: var(--white);
+padding: 50px 1rem;
+text-align: center;
+}
+
+.footer-main-title {
+font-size: 1.8rem;
+font-weight: 800;
+margin-bottom: 8px;
+letter-spacing: 0.5px;
+}
+
+.footer-tagline {
+font-size: 1.15rem;
+font-weight: 500;
+margin-bottom: 25px;
+opacity: 0.95;
+text-transform: uppercase;
+letter-spacing: 1.5px;
+}
+
+.footer-contact {
+font-size: 1rem;
+line-height: 1.8;
+max-width: 700px;
+margin: 0 auto;
+opacity: 0.95;
+}
+
+.footer-contact strong { color: var(--white); }
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+.menu-toggle {
+display: flex;
+}
+
+.nav-links {
+position: absolute;
+top: 100%;
+left: 0;
+width: 100%;
+background-color: var(--white) !important;
+flex-direction: column;
+align-items: center;
+padding: 20px 0;
+gap: 15px;
+box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+max-height: 0;
+overflow: hidden;
+transition: max-height 0.3s ease-in-out;
+border-bottom: 1px solid var(--accent-gray);
+z-index: 9999 !important;
+opacity: 1 !important;
+}
+
+.nav-links.active {
+max-height: 300px;
+}
+
+.nav-links a {
+width: 80%;
+text-align: center;
+padding: 10px;
+font-size: 1rem;
+background-color: transparent !important;
+}
+
+.nav-links a.active {
+color: var(--brand-red);
+background-color: rgba(189, 0, 0, 0.08) !important;
+}
+
+/* Hamburger Animation */
+.menu-toggle.active span:nth-child(1) {
+transform: translateY(9px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+transform: translateY(-9px) rotate(-45deg);
+}
+}
+
+@media (max-width: 576px) {
+.inquiry-options { grid-template-columns: 1fr; }
+}
+
+@media (min-width: 769px) {
+nav { padding: 0.8rem 4%; }
+.nav-links { gap: 18px; }
+header { padding: 80px 4%; }
+.products-section { padding: 60px 4%; }
+.product-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.coming-soon-section { padding: 60px 4%; }
+.about-section { padding: 60px 4%; }
+.about-content { padding: 50px 45px; }
+.stats-grid { grid-template-columns: repeat(3, 1fr); }
+.founder-section { padding: 60px 4%; }
+.founder-container { padding: 50px 45px; }
+.founder-header-flex { flex-direction: row; text-align: left; }
+.form-section { padding: 60px 4%; }
+.form-container { padding: 50px; }
+footer { padding: 60px 4%; }
+}
+</style>
+</head>
+<body>
+
+<div class="bg-floating-text">
+<div class="bg-text-line">Zumark Pharma &bull; Zumark Pharma &bull; Zumark Pharma</div>
+<div class="bg-text-line reverse">Zumark Pharma &bull; Zumark Pharma &bull; Zumark Pharma</div>
+<div class="bg-text-line">Zumark Pharma &bull; Zumark Pharma &bull; Zumark Pharma</div>
+</div>
+
+<nav>
+<div class="logo-container" onclick="openPage('home')">
+<div class="logo-main-row">
+<img src="1795191878034.png" alt="ZuMark Pharma Logo" class="logo-img">
+<span class="brand-name">ZUMARK PHARMA</span>
+</div>
+<span class="logo-tagline">A New Vision for Better Health</span>
+</div>
+
+<button class="menu-toggle" aria-label="Toggle navigation" onclick="toggleMenu()">
+<span></span>
+<span></span>
+<span></span>
+</button>
+
+<div class="nav-links" id="navLinks">
+<a id="nav-home" class="active" onclick="openPage('home')">Home</a>
+<a id="nav-products" onclick="openPage('products')">Products</a>
+<a id="nav-about" onclick="openPage('about')">About</a>
+<a id="nav-founder" onclick="openPage('founder')">Founder</a>
+<a id="nav-contact" onclick="openPage('contact')">Contact</a>
+</div>
+</nav>
+
+<div id="page-home" class="page-view active">
+<header class="animate-fade-in">
+<h1>A New Vision for Better Health</h1>
+<p>Welcome to ZuMark Pharma. We are committed to delivering premium quality dermatological and general healthcare formulations with uncompromising clarity and scientific precision.</p>
+<div class="header-tagline">ZUMARK PHARMA</div>
+<div class="hero-cta-group">
+<a class="hero-btn primary" onclick="openPage('products')">Explore Products</a>
+<a class="hero-btn secondary" onclick="openPage('about')">About ZuMark Pharma</a>
+</div>
+</header>
+
+<section class="products-section">
+<h2 class="section-title">Our Premier Product Range</h2>
+<div class="product-grid">
+<div class="product-card">
+<img src="cream.jpg" alt="Mela Mark Cream" class="product-image">
+<div class="product-content">
+<div>
+<h3>Mela Mark Cream</h3>
+<p class="tagline">For Pigmentation & Uneven Skin Tone</p>
+<div class="salt-section">
+<div class="salt-title">Active Composition</div>
+<div class="salt-list">Betamethasone Valerate, Clindamycin Phosphate, Nicotinamide, Vitamin E Acetate</div>
+</div>
+<div class="salt-title">Targeted Benefits</div>
+<ul class="benefits-list">
+<li>Reduces Dark Spots</li>
+<li>Effective Melasma Care</li>
+<li>Brightens & Evens Complexion</li>
+</ul>
+</div>
+<a href="https://wa.me/917860279945?text=I%20would%20like%20to%20inquire%20about%20Mela%20Mark%20Cream" class="inquire-btn" target="_blank" rel="noopener noreferrer">Inquire via WhatsApp</a>
+</div>
+</div>
+
+<div class="product-card">
+<img src="oints.jpg" alt="Mela Mark S Ointment" class="product-image">
+<div class="product-content">
+<div>
+<h3>Mela Mark S Ointment</h3>
+<p class="tagline">Advanced Pigmentation & Dark Spot Therapy</p>
+<div class="salt-section">
+<div class="salt-title">Active Composition</div>
+<div class="salt-list">Clobetasol Propionate & Salicylic Acid</div>
+</div>
+<div class="salt-title">Targeted Benefits</div>
+<ul class="benefits-list">
+<li>Lightens Stubborn Pigmentation</li>
+<li>Soothes Skin Irritation</li>
+<li>Promotes Smooth, Clear Skin</li>
+</ul>
+</div>
+<a href="https://wa.me/917860279945?text=I%20would%20like%20to%20inquire%20about%20Mela%20Mark%20S%20Ointment" class="inquire-btn" target="_blank" rel="noopener noreferrer">Inquire via WhatsApp</a>
+</div>
+</div>
+
+<div class="product-card">
+<img src="soap.jpg" alt="Mela Mark Soap" class="product-image">
+<div class="product-content">
+<div>
+<h3>Mela Mark Soap</h3>
+<p class="tagline">Premium Dermatological Cleansing Bar</p>
+<div class="salt-section">
+<div class="salt-title">Key Ingredients</div>
+<div class="salt-list">Enriched with Almond Oil, Coconut Oil, Aloe Vera Extract, and Glycerin</div>
+</div>
+<div class="salt-title">Usage</div>
+<p style="font-size: 0.85rem; margin-bottom: 15px; line-height: 1.5;">Gentle cleansing bar formulated to maintain skin hydration while supporting the Mela Mark treatment regimen.</p>
+</div>
+<a href="https://wa.me/917860279945?text=I%20would%20like%20to%20inquire%20about%20Mela%20Mark%20Soap" class="inquire-btn" target="_blank" rel="noopener noreferrer">Inquire via WhatsApp</a>
+</div>
+</div>
+</div>
+</section>
+
+<section class="coming-soon-section">
+<div class="coming-soon-banner">
+<div class="coming-soon-badge">Coming Soon</div>
+<h2 class="coming-soon-title">Innovations on the Horizon</h2>
+<p class="coming-soon-desc">Expanding our commitment to holistic family health with advanced therapeutic solutions.</p>
+<div class="soon-grid">
+<div class="soon-item">
+<div class="soon-icon">&#128138;</div>
+<div class="soon-text">
+<h4>Advanced Antibiotics</h4>
+<p>High-efficacy formulations for reliable infection management.</p>
+</div>
+</div>
+<div class="soon-item">
+<div class="soon-icon">&#129653;</div>
+<div class="soon-text">
+<h4>Premium Cough Syrups</h4>
+<p>Soothing and effective relief for respiratory care.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+
+<div id="page-products" class="page-view">
+<section class="products-section">
+<h2 class="section-title">Our Premier Product Range</h2>
+<div class="product-grid">
+<div class="product-card">
+<img src="cream.jpg" alt="Mela Mark Cream" class="product-image">
+<div class="product-content">
+<div>
+<h3>Mela Mark Cream</h3>
+<p class="tagline">For Pigmentation & Uneven Skin Tone</p>
+<div class="salt-section">
+<div class="salt-title">Active Composition</div>
+<div class="salt-list">Betamethasone Valerate, Clindamycin Phosphate, Nicotinamide, Vitamin E Acetate</div>
+</div>
+<div class="salt-title">Targeted Benefits</div>
+<ul class="benefits-list">
+<li>Reduces Dark Spots</li>
+<li>Effective Melasma Care</li>
+<li>Brightens & Evens Complexion</li>
+</ul>
+</div>
+<a href="https://wa.me/917860279945?text=I%20would%20like%20to%20inquire%20about%20Mela%20Mark%20Cream" class="inquire-btn" target="_blank" rel="noopener noreferrer">Inquire via WhatsApp</a>
+</div>
+</div>
+
+<div class="product-card">
+<img src="oints.jpg" alt="Mela Mark S Ointment" class="product-image">
+<div class="product-content">
+<div>
+<h3>Mela Mark S Ointment</h3>
+<p class="tagline">Advanced Pigmentation & Dark Spot Therapy</p>
+<div class="salt-section">
+<div class="salt-title">Active Composition</div>
+<div class="salt-list">Clobetasol Propionate & Salicylic Acid</div>
+</div>
+<div class="salt-title">Targeted Benefits</div>
+<ul class="benefits-list">
+<li>Lightens Stubborn Pigmentation</li>
+<li>Soothes Skin Irritation</li>
+<li>Promotes Smooth, Clear Skin</li>
+</ul>
+</div>
+<a href="https://wa.me/917860279945?text=I%20would%20like%20to%20inquire%20about%20Mela%20Mark%20S%20Ointment" class="inquire-btn" target="_blank" rel="noopener noreferrer">Inquire via WhatsApp</a>
+</div>
+</div>
+
+<div class="product-card">
+<img src="soap.jpg" alt="Mela Mark Soap" class="product-image">
+<div class="product-content">
+<div>
+<h3>Mela Mark Soap</h3>
+<p class="tagline">Premium Dermatological Cleansing Bar</p>
+<div class="salt-section">
+<div class="salt-title">Key Ingredients</div>
+<div class="salt-list">Enriched with Almond Oil, Coconut Oil, Aloe Vera Extract, and Glycerin</div>
+</div>
+<div class="salt-title">Usage</div>
+<p style="font-size: 0.85rem; margin-bottom: 15px; line-height: 1.5;">Gentle cleansing bar formulated to maintain skin hydration while supporting the Mela Mark treatment regimen.</p>
+</div>
+<a href="https://wa.me/917860279945?text=I%20would%20like%20to%20inquire%20about%20Mela%20Mark%20Soap" class="inquire-btn" target="_blank" rel="noopener noreferrer">Inquire via WhatsApp</a>
+</div>
+</div>
+</div>
+</section>
+</div>
+
+<div id="page-about" class="page-view">
+<section class="about-section">
+<div class="about-content">
+<h2 class="about-h2">About ZuMark Pharma</h2>
+<p class="about-p">
+ZuMark Pharma is a trusted and rapidly growing allopathic pharmaceutical company dedicated to making high-quality, safe, and affordable healthcare accessible to every family. Specializing in the Dermatology and General Physician segments, we deliver clinically reliable, result-oriented formulations designed to meet everyday therapeutic needs without compromising on purity or safety.
+</p>
+<p class="about-p">
+Operating from our corporate base in the Mumbai region, we ensure that every product undergoes stringent quality control checks. Our commitment lies in building lasting trust with medical practitioners, chemists, and patients across India through ethical practices and continuous innovation.
+</p>
+
+<div class="contact-card-box">
+<p><strong>Corporate Office:</strong> Gala No. 04, 184 Swami Vivekanand, Santosh Bhawan Naka, Nalasopara East, Mumbai region, India - 401209</p>
+<p><strong>Email:</strong> info@zumarkpharma.in</p>
+</div>
+
+<div class="stats-grid">
+<div class="stat-card">
+<h3 style="color: var(--corporate-navy); margin-bottom: 10px; font-size: 1.15rem;">Quality Assured</h3>
+<p style="font-size: 0.9rem; color: var(--text-dark);">Stringent clinical standards for utmost patient safety.</p>
+</div>
+<div class="stat-card">
+<h3 style="color: var(--corporate-navy); margin-bottom: 10px; font-size: 1.15rem;">Doctor Trusted</h3>
+<p style="font-size: 0.9rem; color: var(--text-dark);">Formulations recommended by leading medical experts.</p>
+</div>
+<div class="stat-card">
+<h3 style="color: var(--corporate-navy); margin-bottom: 10px; font-size: 1.15rem;">Affordable Care</h3>
+<p style="font-size: 0.9rem; color: var(--text-dark);">Making premium healthcare accessible to every household.</p>
+</div>
+</div>
+
+<div class="promise-box">
+<h3 style="font-size: 1.5rem; margin-bottom: 10px;">Our Commitment</h3>
+<p style="font-size: 0.95rem; color: var(--white); opacity: 0.95; line-height: 1.6;">
+To continuously expand our therapeutic range while maintaining uncompromising excellence in pharmaceutical formulation.
+</p>
+</div>
+</div>
+</section>
+</div>
+
+<div id="page-founder" class="page-view">
+<section class="founder-section">
+<div class="founder-container">
+<div class="founder-header-flex">
+<img src="founder.jpg" alt="Founder & Director, ZuMark Pharma" class="founder-photo" onerror="this.src='1795191878034.png'">
+<div>
+<span class="founder-badge">Leadership & Vision</span>
+<h2 class="founder-title">Founder & Director</h2>
+<p style="color: var(--text-dark); font-size: 1rem;">Driving Excellence in Allopathic Healthcare</p>
+</div>
+</div>
+
+<div class="founder-quote">
+“Quality healthcare should never be a privilege—it must be accessible, reliable, and affordable for every family.”
+</div>
+
+<div class="founder-text">
+<p>
+As the Founder and Director of ZuMark Pharma, my mission is anchored in the belief that effective medical treatment should be within reach of every individual. With a deep understanding of the pharmaceutical landscape, I established ZuMark Pharma to bridge the gap between premium clinical formulations and everyday affordability.
+</p>
+<p>
+We focus intensely on Dermatology and General Physician care, ensuring that each product—from advanced creams to essential therapeutics—delivers tangible results. Operating from our headquarters in the Mumbai region, we maintain rigorous oversight of our distribution and quality standards, ensuring complete reliability for our partners and patients.
+</p>
+<p>
+Looking ahead, we are expanding our portfolio to include critical antibiotics and respiratory care, reinforcing our dedication to comprehensive community health.
+</p>
+</div>
+
+<div class="founder-contact-strip">
+<p><strong>Corporate Headquarters:</strong> Gala No. 04, 184 Swami Vivekanand, Santosh Bhawan Naka, Nalasopara East, Mumbai region, India - 401209</p>
+</div>
+</div>
+</section>
+</div>
+
+<div id="page-contact" class="page-view">
+<section class="form-section">
+<div class="form-container">
+<div class="form-header">
+<h2>Customer Inquiry & Support</h2>
+<p>Connect with us directly for product details, distributorship, or medical inquiries.</p>
+</div>
+
+<form action="https://api.web3forms.com/submit" method="POST">
+<input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+
+<div class="form-group">
+<label for="name">Your Name</label>
+<input type="text" id="name" name="name" required placeholder="Enter your full name">
+</div>
+<div class="form-group">
+<label for="email">Your Email Address</label>
+<input type="email" id="email" name="email" required placeholder="name@example.com">
+</div>
+<div class="form-group">
+<label for="phone">Phone Number</label>
+<input type="tel" id="phone" name="phone" required placeholder="Your contact number">
+</div>
+<div class="form-group">
+<label for="inquiry-type">Nature of Inquiry</label>
+<select id="inquiry-type" name="subject">
+<option value="Product Information">Product Information</option>
+<option value="Distributorship Opportunity">Distributorship / Business Partnership</option>
+<option value="Medical Feedback">Medical Practitioner Feedback</option>
+<option value="General Inquiry">General Inquiry</option>
+</select>
+</div>
+<div class="form-group">
+<label for="message">Detailed Message</label>
+<textarea id="message" name="message" rows="5" required placeholder="How can we assist you today?"></textarea>
+</div>
+<button type="submit" class="submit-btn" style="background-color: var(--brand-red); color: var(--white); border: none; border-radius: 6px; padding: 14px; font-size: 1.1rem; font-weight: 700; cursor: pointer; width: 100%;">Submit Official Inquiry</button>
+</form>
+
+<div class="social-connect-box">
+<h3>Connect With Us on Social Media</h3>
+<div class="social-links-row">
+<a href="https://www.facebook.com/share/1FXmKhGJAE/" class="social-btn btn-facebook" target="_blank" rel="noopener noreferrer">Facebook</a>
+<a href="https://www.instagram.com/zumarkpharma?avpt=ZnZ6cWphbzR6dHZj" class="social-btn btn-instagram" target="_blank" rel="noopener noreferrer">Instagram</a>
+</div>
+</div>
+
+<div style="text-align: center; margin: 30px 0 15px 0; font-weight: 700; color: var(--corporate-navy); font-size: 1.1rem;">OR CONNECT INSTANTLY</div>
+
+<div class="inquiry-options">
+<a href="https://wa.me/917860279945?text=Hello%20ZuMark%20Pharma,%20I%20would%20like%20to%20make%20an%20inquiry." class="inquiry-btn-channel btn-whatsapp" target="_blank" rel="noopener noreferrer">
+&#128172; Chat on WhatsApp
+<span>Fastest Response</span>
+</a>
+<a href="mailto:info@zumarkpharma.in?subject=Website Inquiry" class="inquiry-btn-channel btn-email">
+&#9993;&#65039; Send Direct Email
+<span>Official Correspondence</span>
+</a>
+</div>
+</div>
+</section>
+</div>
+
+<footer>
+<div class="footer-main-title">ZUMARK PHARMA</div>
+<div class="footer-tagline">A New Vision for Better Health</div>
+<div class="footer-contact">
+<p style="margin-bottom: 10px;"><strong>Corporate Office:</strong> Gala No. 04, 184 Swami Vivekanand, Santosh Bhawan Naka, Nalasopara East, Mumbai Region, India - 401209</p>
+<p><strong>Email:</strong> info@zumarkpharma.in</p>
+<p style="margin-top: 10px;">
+<a href="https://www.facebook.com/share/1FXmKhGJAE/" target="_blank" rel="noopener noreferrer" style="color: #FFFFFF; text-decoration: underline; margin-right: 15px;">Facebook</a>
+<a href="https://www.instagram.com/zumarkpharma?avpt=ZnZ6cWphbzR6dHZj" target="_blank" rel="noopener noreferrer" style="color: #FFFFFF; text-decoration: underline;">Instagram</a>
+</p>
+</div>
+</footer>
+
+<script>
+function openPage(pageName) {
+const pages = document.querySelectorAll('.page-view');
+pages.forEach(page => page.classList.remove('active'));
+const navLinks = document.querySelectorAll('.nav-links a');
+navLinks.forEach(link => link.classList.remove('active'));
+const targetPage = document.getElementById('page-' + pageName);
+if (targetPage) targetPage.classList.add('active');
+const activeNav = document.getElementById('nav-' + pageName);
+if (activeNav) activeNav.classList.add('active');
+window.scrollTo({ top: 0, behavior: 'smooth' });
+
+// Close mobile menu after selection
+const navLinksContainer = document.getElementById('navLinks');
+if (navLinksContainer.classList.contains('active')) {
+toggleMenu();
+}
+}
+
+function toggleMenu() {
+const navLinks = document.getElementById('navLinks');
+const menuToggle = document.querySelector('.menu-toggle');
+navLinks.classList.toggle('active');
+menuToggle.classList.toggle('active');
+}
+</script>
+
+</body>
+</html>
