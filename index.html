@@ -795,7 +795,9 @@ opacity: 0.95;
 display: flex;
 }
 
+/* FIXED: menu is completely removed when closed */
 .nav-links {
+display: none !important;
 position: absolute;
 top: 100%;
 left: 0;
@@ -806,16 +808,12 @@ align-items: center;
 padding: 20px 0;
 gap: 15px;
 box-shadow: 0 5px 10px rgba(0,0,0,0.15);
-max-height: 0;
-overflow: hidden;
-transition: max-height 0.3s ease-in-out;
 border-bottom: 1px solid var(--accent-gray);
 z-index: 9999 !important;
-opacity: 1 !important;
 }
 
 .nav-links.active {
-max-height: 300px;
+display: flex !important;
 }
 
 .nav-links a {
