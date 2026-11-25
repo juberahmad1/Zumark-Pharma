@@ -4,750 +4,1011 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ZuMark Pharma | Corporate Excellence in Healthcare</title>
+<!-- GSAP & ScrollTrigger CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <style>
 :root {
---brand-red: #BD0000;
---corporate-navy: #1E293B;
---text-dark: #334155;
---bg-light: #F8FAFC;
---white: #FFFFFF;
---accent-gray: #E2E8F0;
+  --brand-red: #BD0000;
+  --brand-dark-red: #8A0000;
+  --corporate-navy: #1E293B;
+  --text-dark: #334155;
+  --bg-light: #F8FAFC;
+  --cream-bg: #FBF9F6;
+  --white: #FFFFFF;
+  --accent-gray: #E2E8F0;
 }
 
 html {
-scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 * {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
 body {
-background-color: var(--bg-light);
-color: var(--text-dark);
-line-height: 1.5;
-overflow-x: hidden;
-position: relative;
-font-size: 14px;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  line-height: 1.5;
+  overflow-x: hidden;
+  position: relative;
+  font-size: 14px;
 }
 
 .bg-floating-text {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-z-index: -1;
-overflow: hidden;
-pointer-events: none;
-opacity: 0.12;
-display: flex;
-flex-direction: column;
-justify-content: space-around;
-white-space: nowrap;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0.08;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  white-space: nowrap;
 }
 
 .bg-text-line {
-font-size: clamp(3rem, 8vw, 6rem);
-font-weight: 900;
-color: var(--brand-red);
-text-transform: uppercase;
-animation: marquee 25s linear infinite;
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 900;
+  color: var(--brand-red);
+  text-transform: uppercase;
+  animation: marquee 25s linear infinite;
 }
 
 .bg-text-line.reverse {
-animation-direction: reverse;
-animation-duration: 30s;
+  animation-direction: reverse;
+  animation-duration: 30s;
 }
 
 @keyframes marquee {
-0% { transform: translateX(100%); }
-100% { transform: translateX(-100%); }
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
 }
 
 @keyframes fadeIn {
-from { opacity: 0; transform: translateY(15px); }
-to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .animate-fade-in {
-animation: fadeIn 0.8s ease-out forwards;
+  animation: fadeIn 0.8s ease-out forwards;
 }
 
+/* Navigation */
 nav {
-background: var(--white);
-padding: 0.6rem 1rem;
-display: flex;
-justify-content: space-between;
-align-items: center;
-position: sticky;
-top: 0;
-z-index: 1000;
-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+  padding: 0.6rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
 }
 
 .logo-container {
-display: flex;
-flex-direction: column;
-align-items: center;
-cursor: pointer;
-background-color: var(--brand-red);
-padding: 10px 15px;
-border-radius: 8px;
-text-align: center;
-z-index: 1002;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  background-color: var(--brand-red);
+  padding: 10px 15px;
+  border-radius: 8px;
+  text-align: center;
+  z-index: 1002;
+  transition: transform 0.2s ease;
+}
+
+.logo-container:hover {
+  transform: scale(1.02);
 }
 
 .logo-main-row {
-display: flex;
-align-items: center;
-gap: 8px;
-margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
 }
 
 .logo-img {
-height: 32px;
-width: auto;
+  height: 32px;
+  width: auto;
 }
 
 .brand-name {
-font-size: 1.2rem;
-font-weight: 800;
-color: var(--white);
-letter-spacing: -0.5px;
-line-height: 1;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.5px;
+  line-height: 1;
 }
 
-/* Registered mark: small, white superscript */
 .reg-mark {
-font-size: 0.5em;
-color: #FFFFFF;
-margin-left: 2px;
-font-weight: 600;
+  font-size: 0.5em;
+  color: #FFFFFF;
+  margin-left: 2px;
+  font-weight: 600;
 }
 
 .logo-tagline {
-color: var(--white);
-font-size: 0.75rem;
-font-weight: 500;
-opacity: 0.9;
-letter-spacing: 0.5px;
-text-transform: uppercase;
-margin-top: 2px;
+  color: var(--white);
+  font-size: 0.75rem;
+  font-weight: 500;
+  opacity: 0.9;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-top: 2px;
 }
 
-/* Hamburger Menu Styles */
 .menu-toggle {
-display: none;
-flex-direction: column;
-justify-content: space-between;
-width: 30px;
-height: 21px;
-background: none;
-border: none;
-cursor: pointer;
-padding: 0;
-z-index: 1002;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1002;
 }
 
 .menu-toggle span {
-display: block;
-height: 3px;
-width: 100%;
-background-color: var(--corporate-navy);
-border-radius: 3px;
-transition: transform 0.3s ease, opacity 0.3s ease;
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: var(--corporate-navy);
+  border-radius: 3px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .nav-links {
-display: flex;
-gap: 12px;
-background-color: var(--white);
+  display: flex;
+  gap: 12px;
+  background-color: transparent;
 }
 
 .nav-links a {
-text-decoration: none;
-color: var(--text-dark);
-font-weight: 600;
-font-size: 0.85rem;
-padding: 4px 8px;
-border-radius: 4px;
-transition: all 0.2s;
-cursor: pointer;
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: all 0.2s;
+  cursor: pointer;
 }
 
 .nav-links a:hover, .nav-links a.active {
-color: var(--brand-red);
-background-color: rgba(189, 0, 0, 0.08);
+  color: var(--brand-red);
+  background-color: rgba(189, 0, 0, 0.08);
 }
 
 .page-view {
-display: none;
-animation: fadeIn 0.4s ease-out forwards;
+  display: none;
+  animation: fadeIn 0.4s ease-out forwards;
 }
 
 .page-view.active {
-display: block;
+  display: block;
 }
 
+/* Hero Section */
 header {
-background-color: var(--brand-red);
-color: var(--white);
-padding: 60px 1rem;
-text-align: center;
-position: relative;
-z-index: 1;
+  background: radial-gradient(circle at top right, #D90000, var(--brand-red) 60%, var(--brand-dark-red) 100%);
+  color: var(--white);
+  padding: 70px 1rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
 }
 
 header h1 {
-font-size: clamp(1.8rem, 6vw, 3.2rem);
-margin-bottom: 0.8rem;
-font-weight: 800;
-text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-line-height: 1.2;
+  font-size: clamp(2rem, 6vw, 3.6rem);
+  margin-bottom: 0.8rem;
+  font-weight: 900;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
 }
 
 header p {
-font-size: clamp(0.9rem, 2vw, 1.1rem);
-max-width: 650px;
-margin: 0 auto 20px auto;
-color: var(--white);
-opacity: 0.95;
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  max-width: 680px;
+  margin: 0 auto 20px auto;
+  color: var(--white);
+  opacity: 0.95;
 }
 
 header .header-tagline {
-font-size: 1.1rem;
-font-weight: 600;
-margin-top: 15px;
-text-transform: uppercase;
-letter-spacing: 1px;
-opacity: 0.9;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-top: 15px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0.9;
 }
 
 .hero-cta-group {
-display: flex;
-justify-content: center;
-gap: 12px;
-flex-wrap: wrap;
-margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 28px;
 }
 
 .hero-btn {
-padding: 10px 20px;
-border-radius: 6px;
-font-weight: 700;
-font-size: 0.9rem;
-text-decoration: none;
-cursor: pointer;
-transition: transform 0.2s;
+  padding: 12px 26px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.hero-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
 .hero-btn.primary {
-background-color: var(--white);
-color: var(--brand-red);
+  background-color: var(--white);
+  color: var(--brand-red);
 }
 
 .hero-btn.secondary {
-background-color: rgba(255, 255, 255, 0.15);
-color: var(--white);
-border: 1px solid var(--white);
+  background-color: rgba(255, 255, 255, 0.15);
+  color: var(--white);
+  border: 1.5px solid var(--white);
 }
 
+/* =========================================================
+   INTERACTIVE STICKY SCROLL SHOWCASE (FROISSANT STYLE)
+   ========================================================= */
+.showcase-wrapper {
+  position: relative;
+  background: var(--cream-bg);
+  border-bottom: 1px solid var(--accent-gray);
+}
+
+.showcase-stage {
+  position: sticky;
+  top: 72px;
+  height: calc(100vh - 72px);
+  min-height: 540px;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 20px 5%;
+  overflow: hidden;
+}
+
+.showcase-text-col {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.showcase-slide-info {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(40px);
+  pointer-events: none;
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.showcase-slide-info.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.showcase-eyebrow {
+  display: inline-block;
+  background: rgba(189, 0, 0, 0.1);
+  color: var(--brand-red);
+  font-weight: 800;
+  font-size: 0.78rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 50px;
+  margin-bottom: 14px;
+}
+
+.showcase-headline {
+  font-size: clamp(2.1rem, 4.5vw, 3.8rem);
+  font-weight: 900;
+  color: var(--corporate-navy);
+  line-height: 1.05;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+}
+
+.showcase-headline span {
+  color: var(--brand-red);
+  display: block;
+}
+
+.showcase-sub {
+  font-size: 1rem;
+  color: var(--text-dark);
+  max-width: 440px;
+  margin-bottom: 18px;
+  line-height: 1.6;
+}
+
+.showcase-salt-pill {
+  background: var(--white);
+  border-left: 4px solid var(--brand-red);
+  padding: 10px 14px;
+  border-radius: 6px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+  margin-bottom: 20px;
+  max-width: 440px;
+}
+
+.showcase-salt-pill strong {
+  display: block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--corporate-navy);
+  margin-bottom: 2px;
+}
+
+.showcase-salt-pill span {
+  font-size: 0.85rem;
+  color: var(--text-dark);
+}
+
+.showcase-cta {
+  display: inline-block;
+  background: var(--brand-red);
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 700;
+  padding: 12px 26px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  box-shadow: 0 6px 18px rgba(189, 0, 0, 0.25);
+  transition: transform 0.2s, background 0.2s;
+}
+
+.showcase-cta:hover {
+  transform: translateY(-2px);
+  background: var(--brand-dark-red);
+}
+
+/* Visual 3D Floating Stage */
+.showcase-visual-col {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px;
+}
+
+.showcase-ring {
+  position: absolute;
+  width: clamp(260px, 34vw, 430px);
+  height: clamp(260px, 34vw, 430px);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(189, 0, 0, 0.12) 0%, rgba(189, 0, 0, 0.02) 70%, transparent 100%);
+  border: 1px dashed rgba(189, 0, 0, 0.25);
+  animation: spinSlow 30s linear infinite;
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.showcase-img-card {
+  position: absolute;
+  width: clamp(240px, 32vw, 410px);
+  height: clamp(240px, 32vw, 410px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.75) rotate(-8deg) translateY(30px);
+  transition: all 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.showcase-img-card.active {
+  opacity: 1;
+  transform: scale(1) rotate(0deg) translateY(0);
+  pointer-events: auto;
+}
+
+.showcase-img-card img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 16px;
+  filter: drop-shadow(0 22px 32px rgba(30, 41, 59, 0.22));
+  animation: floatProduct 4s ease-in-out infinite;
+}
+
+@keyframes floatProduct {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(1.5deg); }
+}
+
+/* Custom SVG/CSS Visual for Syrup & Tablet Slide when photo isn't uploaded yet */
+.pharma-pack-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(145deg, #FFFFFF, #F1F5F9);
+  border: 2px solid rgba(189, 0, 0, 0.2);
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 24px 40px rgba(30, 41, 59, 0.15);
+  animation: floatProduct 4s ease-in-out infinite;
+}
+
+.pharma-pack-placeholder .emoji-art {
+  font-size: 4.5rem;
+  margin-bottom: 12px;
+}
+
+.pharma-pack-placeholder h4 {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: var(--brand-red);
+  margin-bottom: 6px;
+}
+
+.pharma-pack-placeholder p {
+  font-size: 0.85rem;
+  color: var(--corporate-navy);
+  font-weight: 600;
+}
+
+.showcase-dots {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 10;
+}
+
+.showcase-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(30, 41, 59, 0.25);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.showcase-dot.active {
+  background: var(--brand-red);
+  height: 26px;
+  border-radius: 10px;
+}
+
+/* Scroll spacer steps */
+.showcase-steps {
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.scroll-step {
+  height: 85vh;
+}
+
+/* Standard Product Grid Section */
 .products-section {
-padding: 50px 1rem;
-max-width: 1200px;
-margin: 0 auto;
+  padding: 60px 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .section-title {
-text-align: center;
-font-size: clamp(1.8rem, 5vw, 2.5rem);
-color: var(--corporate-navy);
-margin-bottom: 35px;
+  text-align: center;
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  color: var(--corporate-navy);
+  margin-bottom: 35px;
+  font-weight: 800;
 }
 
 .product-grid {
-display: grid;
-grid-template-columns: 1fr;
-gap: 25px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
 }
 
 .product-card {
-background: var(--white);
-border-radius: 10px;
-overflow: hidden;
-box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.08);
-display: flex;
-flex-direction: column;
-border: 1px solid rgba(0,0,0,0.05);
+  background: var(--white);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px -5px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 30px -8px rgba(189, 0, 0, 0.14);
 }
 
 .product-image {
-width: 100%;
-height: 180px;
-object-fit: contain;
-background-color: #F1F5F9;
-padding: 15px;
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  background-color: #F1F5F9;
+  padding: 15px;
+  transition: transform 0.35s ease;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.05);
 }
 
 .product-content {
-padding: 20px;
-flex-grow: 1;
-display: flex;
-flex-direction: column;
-justify-content: space-between;
+  padding: 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .product-content h3 {
-font-size: 1.35rem;
-color: var(--corporate-navy);
-margin-bottom: 6px;
+  font-size: 1.35rem;
+  color: var(--corporate-navy);
+  margin-bottom: 6px;
 }
 
 .tagline {
-font-style: italic;
-color: var(--brand-red);
-margin-bottom: 10px;
-font-size: 0.85rem;
-font-weight: 600;
+  font-style: italic;
+  color: var(--brand-red);
+  margin-bottom: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
 }
 
 .salt-section {
-background: var(--bg-light);
-padding: 10px;
-border-radius: 6px;
-margin-bottom: 15px;
-border-left: 3px solid var(--corporate-navy);
+  background: var(--bg-light);
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  border-left: 3px solid var(--corporate-navy);
 }
 
 .salt-title {
-font-weight: 700;
-font-size: 0.75rem;
-color: var(--corporate-navy);
-text-transform: uppercase;
-letter-spacing: 0.5px;
-margin-bottom: 3px;
+  font-weight: 700;
+  font-size: 0.75rem;
+  color: var(--corporate-navy);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 3px;
 }
 
 .salt-list {
-font-size: 0.85rem;
-color: var(--text-dark);
+  font-size: 0.85rem;
+  color: var(--text-dark);
 }
 
 .benefits-list {
-margin: 8px 0 15px 16px;
-font-size: 0.85rem;
-color: var(--text-dark);
+  margin: 8px 0 15px 16px;
+  font-size: 0.85rem;
+  color: var(--text-dark);
 }
 
 .inquire-btn {
-display: inline-block;
-width: 100%;
-padding: 12px;
-background-color: #25D366;
-color: var(--white);
-text-align: center;
-text-decoration: none;
-border-radius: 6px;
-font-weight: 700;
-font-size: 0.95rem;
-box-shadow: 0 3px 6px rgba(37, 211, 102, 0.2);
+  display: inline-block;
+  width: 100%;
+  padding: 12px;
+  background-color: #25D366;
+  color: var(--white);
+  text-align: center;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  box-shadow: 0 3px 6px rgba(37, 211, 102, 0.2);
+  transition: background-color 0.2s;
+}
+
+.inquire-btn:hover {
+  background-color: #1EBE5D;
 }
 
 /* Coming Soon Section */
 .coming-soon-section {
-padding: 50px 1rem;
-background-color: #FFFFFF;
-border-top: 1px solid var(--accent-gray);
-border-bottom: 1px solid var(--accent-gray);
+  padding: 50px 1rem;
+  background-color: #FFFFFF;
+  border-top: 1px solid var(--accent-gray);
+  border-bottom: 1px solid var(--accent-gray);
 }
 
 .coming-soon-banner {
-max-width: 1000px;
-margin: 0 auto;
-background: var(--bg-light);
-border: 3px dashed var(--brand-red);
-border-radius: 12px;
-padding: 40px 20px;
-text-align: center;
-box-shadow: 0 10px 25px -5px rgba(189, 0, 0, 0.1);
+  max-width: 1000px;
+  margin: 0 auto;
+  background: var(--bg-light);
+  border: 3px dashed var(--brand-red);
+  border-radius: 12px;
+  padding: 40px 20px;
+  text-align: center;
+  box-shadow: 0 10px 25px -5px rgba(189, 0, 0, 0.1);
 }
 
 .coming-soon-badge {
-display: inline-block;
-background-color: var(--brand-red);
-color: var(--white);
-font-weight: 900;
-font-size: 1.5rem;
-text-transform: uppercase;
-letter-spacing: 2px;
-padding: 10px 25px;
-border-radius: 50px;
-margin-bottom: 25px;
-box-shadow: 0 4px 15px rgba(189, 0, 0, 0.3);
-animation: pulse 2s infinite;
+  display: inline-block;
+  background-color: var(--brand-red);
+  color: var(--white);
+  font-weight: 900;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 10px 25px;
+  border-radius: 50px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 15px rgba(189, 0, 0, 0.3);
+  animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
-0% { transform: scale(1); }
-50% { transform: scale(1.05); }
-100% { transform: scale(1); }
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
 }
 
 .coming-soon-title {
-font-size: clamp(2rem, 5vw, 3rem);
-color: var(--corporate-navy);
-margin-bottom: 15px;
-font-weight: 800;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--corporate-navy);
+  margin-bottom: 15px;
+  font-weight: 800;
 }
 
 .coming-soon-desc {
-font-size: 1.1rem;
-color: var(--text-dark);
-max-width: 700px;
-margin: 0 auto 30px auto;
-line-height: 1.6;
+  font-size: 1.1rem;
+  color: var(--text-dark);
+  max-width: 700px;
+  margin: 0 auto 30px auto;
+  line-height: 1.6;
 }
 
 .soon-grid {
-display: grid;
-grid-template-columns: 1fr;
-gap: 20px;
-max-width: 800px;
-margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .soon-item {
-background: var(--white);
-padding: 20px;
-border-radius: 8px;
-border-left: 4px solid var(--brand-red);
-box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-display: flex;
-align-items: center;
-gap: 15px;
-text-align: left;
+  background: var(--white);
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 4px solid var(--brand-red);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-align: left;
 }
 
 .soon-icon {
-font-size: 2rem;
-background: rgba(189, 0, 0, 0.1);
-width: 60px;
-height: 60px;
-display: flex;
-align-items: center;
-justify-content: center;
-border-radius: 50%;
-flex-shrink: 0;
+  font-size: 2rem;
+  background: rgba(189, 0, 0, 0.1);
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  flex-shrink: 0;
 }
 
 .soon-text h4 {
-font-size: 1.2rem;
-color: var(--corporate-navy);
-margin-bottom: 4px;
+  font-size: 1.2rem;
+  color: var(--corporate-navy);
+  margin-bottom: 4px;
 }
 
 .soon-text p {
-font-size: 0.9rem;
-color: var(--text-dark);
+  font-size: 0.9rem;
+  color: var(--text-dark);
 }
 
-.about-section {
-padding: 50px 1rem;
-background-color: var(--bg-light);
-min-height: 75vh;
+/* About, Founder & Contact Sections */
+.about-section, .founder-section, .form-section {
+  padding: 50px 1rem;
+  background-color: var(--bg-light);
+  min-height: 75vh;
 }
 
-.about-content {
-max-width: 900px;
-margin: 0 auto;
-background: var(--white);
-padding: 35px 30px;
-border-radius: 12px;
-box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-border-top: 5px solid var(--corporate-navy);
+.about-content, .founder-container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--white);
+  padding: 35px 30px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  border-top: 5px solid var(--corporate-navy);
+}
+
+.founder-container {
+  border-top-color: var(--brand-red);
 }
 
 .about-h2 {
-font-size: clamp(1.8rem, 4vw, 2.5rem);
-color: var(--corporate-navy);
-margin-bottom: 25px;
-text-align: center;
-font-weight: 800;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  color: var(--corporate-navy);
+  margin-bottom: 25px;
+  text-align: center;
+  font-weight: 800;
 }
 
-.about-p {
-font-size: 1rem;
-color: var(--text-dark);
-line-height: 1.8;
-margin-bottom: 20px;
-text-align: left;
+.about-p, .founder-text p {
+  font-size: 1rem;
+  color: var(--text-dark);
+  line-height: 1.8;
+  margin-bottom: 20px;
+  text-align: left;
 }
 
 .contact-card-box {
-background: var(--bg-light);
-padding: 20px;
-border-radius: 10px;
-border-left: 4px solid var(--brand-red);
-margin: 30px 0;
-font-size: 0.95rem;
-line-height: 1.7;
-color: var(--corporate-navy);
-box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  background: var(--bg-light);
+  padding: 20px;
+  border-radius: 10px;
+  border-left: 4px solid var(--brand-red);
+  margin: 30px 0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--corporate-navy);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
 }
 
 .stats-grid {
-display: grid;
-grid-template-columns: 1fr;
-gap: 20px;
-margin: 35px 0;
-text-align: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin: 35px 0;
+  text-align: center;
 }
 
 .stat-card {
-padding: 25px;
-background: var(--bg-light);
-border-radius: 10px;
-border-top: 4px solid var(--brand-red);
+  padding: 25px;
+  background: var(--bg-light);
+  border-radius: 10px;
+  border-top: 4px solid var(--brand-red);
 }
 
 .stat-card:nth-child(2) { border-color: var(--corporate-navy); }
 .stat-card:nth-child(3) { border-color: var(--text-dark); }
 
 .promise-box {
-background-color: var(--brand-red);
-color: var(--white);
-padding: 30px;
-border-radius: 10px;
-text-align: center;
-box-shadow: 0 4px 15px rgba(189,0,0,0.2);
-}
-
-.founder-section {
-padding: 50px 1rem;
-background-color: var(--bg-light);
-min-height: 75vh;
-}
-
-.founder-container {
-max-width: 900px;
-margin: 0 auto;
-background: var(--white);
-padding: 40px 30px;
-border-radius: 12px;
-border-top: 5px solid var(--brand-red);
-box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+  background-color: var(--brand-red);
+  color: var(--white);
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(189,0,0,0.2);
 }
 
 .founder-header-flex {
-display: flex;
-flex-direction: column;
-align-items: center;
-text-align: center;
-gap: 25px;
-margin-bottom: 30px;
-padding-bottom: 25px;
-border-bottom: 1px solid var(--accent-gray);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 25px;
+  margin-bottom: 30px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid var(--accent-gray);
 }
 
 .founder-photo {
-width: 140px;
-height: 140px;
-border-radius: 0;
-object-fit: cover;
-border: 4px solid var(--brand-red);
-background-color: #E2E8F0;
-box-shadow: 0 6px 16px rgba(189, 0, 0, 0.2);
+  width: 140px;
+  height: 140px;
+  border-radius: 0;
+  object-fit: cover;
+  border: 4px solid var(--brand-red);
+  background-color: #E2E8F0;
+  box-shadow: 0 6px 16px rgba(189, 0, 0, 0.2);
 }
 
 .founder-badge {
-display: inline-block;
-background-color: rgba(189, 0, 0, 0.1);
-color: var(--brand-red);
-font-weight: 700;
-font-size: 0.8rem;
-text-transform: uppercase;
-letter-spacing: 1px;
-padding: 6px 16px;
-border-radius: 20px;
-margin-bottom: 10px;
+  display: inline-block;
+  background-color: rgba(189, 0, 0, 0.1);
+  color: var(--brand-red);
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-bottom: 10px;
 }
 
 .founder-title {
-font-size: clamp(1.6rem, 4vw, 2.3rem);
-color: var(--corporate-navy);
-margin-bottom: 8px;
-font-weight: 800;
+  font-size: clamp(1.6rem, 4vw, 2.3rem);
+  color: var(--corporate-navy);
+  margin-bottom: 8px;
+  font-weight: 800;
 }
 
 .founder-quote {
-font-style: italic;
-color: var(--brand-red);
-font-weight: 600;
-font-size: 1.05rem;
-background: rgba(189, 0, 0, 0.04);
-padding: 16px 20px;
-border-left: 4px solid var(--brand-red);
-border-radius: 8px;
-margin-bottom: 30px;
-line-height: 1.6;
-}
-
-.founder-text p {
-font-size: 1rem;
-color: var(--text-dark);
-line-height: 1.8;
-margin-bottom: 20px;
-text-align: left;
+  font-style: italic;
+  color: var(--brand-red);
+  font-weight: 600;
+  font-size: 1.05rem;
+  background: rgba(189, 0, 0, 0.04);
+  padding: 16px 20px;
+  border-left: 4px solid var(--brand-red);
+  border-radius: 8px;
+  margin-bottom: 30px;
+  line-height: 1.6;
 }
 
 .founder-contact-strip {
-background: var(--bg-light);
-padding: 20px;
-border-radius: 10px;
-border-left: 4px solid var(--corporate-navy);
-margin-top: 35px;
-font-size: 0.95rem;
-color: var(--corporate-navy);
-line-height: 1.7;
-}
-
-.form-section {
-padding: 50px 1rem;
-background-color: var(--bg-light);
-min-height: 75vh;
+  background: var(--bg-light);
+  padding: 20px;
+  border-radius: 10px;
+  border-left: 4px solid var(--corporate-navy);
+  margin-top: 35px;
+  font-size: 0.95rem;
+  color: var(--corporate-navy);
+  line-height: 1.7;
 }
 
 .form-container {
-max-width: 700px;
-margin: 0 auto;
-background: var(--white);
-padding: 40px;
-border-radius: 12px;
-box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-border-top: 4px solid var(--brand-red);
+  max-width: 700px;
+  margin: 0 auto;
+  background: var(--white);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  border-top: 4px solid var(--brand-red);
 }
 
 .form-header {
-text-align: center;
-margin-bottom: 30px;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 .form-header h2 {
-font-size: 1.8rem;
-color: var(--corporate-navy);
-margin-bottom: 8px;
+  font-size: 1.8rem;
+  color: var(--corporate-navy);
+  margin-bottom: 8px;
 }
 
 .form-header p {
-font-size: 0.95rem;
-color: var(--text-dark);
+  font-size: 0.95rem;
+  color: var(--text-dark);
 }
 
 .form-group {
-margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .form-group label {
-display: block;
-margin-bottom: 8px;
-font-weight: 600;
-color: var(--corporate-navy);
-font-size: 0.9rem;
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--corporate-navy);
+  font-size: 0.9rem;
 }
 
 .form-group input, .form-group textarea, .form-group select {
-width: 100%;
-padding: 12px 15px;
-border: 1px solid var(--accent-gray);
-border-radius: 6px;
-font-size: 0.95rem;
-color: var(--text-dark);
-transition: border-color 0.2s;
-background-color: var(--bg-light);
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid var(--accent-gray);
+  border-radius: 6px;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  transition: border-color 0.2s;
+  background-color: var(--bg-light);
 }
 
 .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
-border-color: var(--brand-red);
-outline: none;
-background-color: var(--white);
+  border-color: var(--brand-red);
+  outline: none;
+  background-color: var(--white);
 }
 
 .inquiry-options {
-display: grid;
-grid-template-columns: repeat(2, 1fr);
-gap: 15px;
-margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-top: 20px;
 }
 
 .social-connect-box {
-margin-top: 25px;
-padding: 20px;
-background-color: var(--bg-light);
-border-radius: 10px;
-border-left: 4px solid var(--brand-red);
-text-align: center;
+  margin-top: 25px;
+  padding: 20px;
+  background-color: var(--bg-light);
+  border-radius: 10px;
+  border-left: 4px solid var(--brand-red);
+  text-align: center;
 }
 
 .social-connect-box h3 {
-color: var(--corporate-navy);
-font-size: 1.1rem;
-margin-bottom: 12px;
+  color: var(--corporate-navy);
+  font-size: 1.1rem;
+  margin-bottom: 12px;
 }
 
 .social-links-row {
-display: flex;
-justify-content: center;
-gap: 12px;
-flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 .social-btn {
-display: inline-block;
-padding: 10px 20px;
-border-radius: 6px;
-text-decoration: none;
-font-weight: 700;
-font-size: 0.9rem;
-color: var(--white);
-transition: transform 0.2s;
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--white);
+  transition: transform 0.2s;
 }
 
 .social-btn:hover {
-transform: translateY(-2px);
+  transform: translateY(-2px);
 }
 
-.btn-facebook {
-background-color: #1877F2;
-}
-
-.btn-instagram {
-background-color: #E1306C;
-}
+.btn-facebook { background-color: #1877F2; }
+.btn-instagram { background-color: #E1306C; }
 
 .inquiry-btn-channel {
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-padding: 15px;
-border-radius: 8px;
-text-decoration: none;
-font-weight: 700;
-font-size: 0.95rem;
-transition: transform 0.2s, box-shadow 0.2s;
-text-align: center;
-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-align: center;
+  color: var(--white);
 }
 
 .inquiry-btn-channel span {
-font-size: 0.8rem;
-font-weight: 500;
-margin-top: 4px;
-opacity: 0.9;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-top: 4px;
+  opacity: 0.9;
 }
 
 .btn-whatsapp { background-color: #25D366; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2); }
@@ -757,490 +1018,729 @@ opacity: 0.9;
 .btn-email:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(234, 67, 53, 0.3); }
 
 footer {
-background-color: var(--brand-red);
-color: var(--white);
-padding: 50px 1rem;
-text-align: center;
+  background-color: var(--brand-red);
+  color: var(--white);
+  padding: 50px 1rem;
+  text-align: center;
 }
 
 .footer-main-title {
-font-size: 1.8rem;
-font-weight: 800;
-margin-bottom: 8px;
-letter-spacing: 0.5px;
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
 }
 
 .footer-tagline {
-font-size: 1.15rem;
-font-weight: 500;
-margin-bottom: 25px;
-opacity: 0.95;
-text-transform: uppercase;
-letter-spacing: 1.5px;
+  font-size: 1.15rem;
+  font-weight: 500;
+  margin-bottom: 25px;
+  opacity: 0.95;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
 }
 
 .footer-contact {
-font-size: 1rem;
-line-height: 1.8;
-max-width: 700px;
-margin: 0 auto;
-opacity: 0.95;
+  font-size: 1rem;
+  line-height: 1.8;
+  max-width: 700px;
+  margin: 0 auto;
+  opacity: 0.95;
 }
 
 .footer-contact strong { color: var(--white); }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-.menu-toggle {
-display: flex;
-}
+  .menu-toggle {
+    display: flex;
+  }
 
-/* FIXED: menu is completely removed when closed */
-.nav-links {
-display: none !important;
-position: absolute;
-top: 100%;
-left: 0;
-width: 100%;
-background-color: var(--white) !important;
-flex-direction: column;
-align-items: center;
-padding: 20px 0;
-gap: 15px;
-box-shadow: 0 5px 10px rgba(0,0,0,0.15);
-border-bottom: 1px solid var(--accent-gray);
-z-index: 9999 !important;
-}
+  .nav-links {
+    display: none !important;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--white) !important;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    gap: 15px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+    border-bottom: 1px solid var(--accent-gray);
+    z-index: 9999 !important;
+  }
 
-.nav-links.active {
-display: flex !important;
-}
+  .nav-links.active {
+    display: flex !important;
+  }
 
-.nav-links a {
-width: 80%;
-text-align: center;
-padding: 10px;
-font-size: 1rem;
-background-color: transparent !important;
-}
+  .nav-links a {
+    width: 80%;
+    text-align: center;
+    padding: 10px;
+    font-size: 1rem;
+    background-color: transparent !important;
+  }
 
-.nav-links a.active {
-color: var(--brand-red);
-background-color: rgba(189, 0, 0, 0.08) !important;
-}
+  .nav-links a.active {
+    color: var(--brand-red);
+    background-color: rgba(189, 0, 0, 0.08) !important;
+  }
 
-/* Hamburger Animation */
-.menu-toggle.active span:nth-child(1) {
-transform: translateY(9px) rotate(45deg);
-}
+  .menu-toggle.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
 
-.menu-toggle.active span:nth-child(2) {
-opacity: 0;
-}
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
 
-.menu-toggle.active span:nth-child(3) {
-transform: translateY(-9px) rotate(-45deg);
-}
+  .menu-toggle.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+
+  /* Showcase Responsive Stack */
+  .showcase-stage {
+    grid-template-columns: 1fr;
+    grid-template-rows: 46% 54%;
+    padding: 15px 6%;
+    top: 64px;
+    height: calc(100vh - 64px);
+  }
+
+  .showcase-visual-col {
+    order: 1;
+  }
+
+  .showcase-text-col {
+    order: 2;
+    align-items: flex-start;
+  }
+
+  .showcase-img-card {
+    width: 220px;
+    height: 220px;
+  }
+
+  .showcase-ring {
+    width: 240px;
+    height: 240px;
+  }
+
+  .showcase-headline {
+    font-size: 1.85rem;
+    margin-bottom: 8px;
+  }
+
+  .showcase-sub {
+    font-size: 0.88rem;
+    margin-bottom: 10px;
+  }
+
+  .showcase-salt-pill {
+    padding: 8px 10px;
+    margin-bottom: 12px;
+  }
+
+  .showcase-dots {
+    right: 10px;
+  }
 }
 
 @media (max-width: 576px) {
-.inquiry-options { grid-template-columns: 1fr; }
+  .inquiry-options { grid-template-columns: 1fr; }
 }
 
 @media (min-width: 769px) {
-nav { padding: 0.8rem 4%; }
-.nav-links { gap: 18px; }
-header { padding: 80px 4%; }
-.products-section { padding: 60px 4%; }
-.product-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-.coming-soon-section { padding: 60px 4%; }
-.about-section { padding: 60px 4%; }
-.about-content { padding: 50px 45px; }
-.stats-grid { grid-template-columns: repeat(3, 1fr); }
-.founder-section { padding: 60px 4%; }
-.founder-container { padding: 50px 45px; }
-.founder-header-flex { flex-direction: row; text-align: left; }
-.form-section { padding: 60px 4%; }
-.form-container { padding: 50px; }
-footer { padding: 60px 4%; }
+  nav { padding: 0.8rem 4%; }
+  .nav-links { gap: 18px; }
+  header { padding: 80px 4%; }
+  .products-section { padding: 60px 4%; }
+  .product-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  .coming-soon-section { padding: 60px 4%; }
+  .about-section { padding: 60px 4%; }
+  .about-content { padding: 50px 45px; }
+  .stats-grid { grid-template-columns: repeat(3, 1fr); }
+  .founder-section { padding: 60px 4%; }
+  .founder-container { padding: 50px 45px; }
+  .founder-header-flex { flex-direction: row; text-align: left; }
+  .form-section { padding: 60px 4%; }
+  .form-container { padding: 50px; }
+  footer { padding: 60px 4%; }
 }
 </style>
 </head>
 <body>
 
 <div class="bg-floating-text">
-<div class="bg-text-line">Zumark Pharma &bull; Zumark Pharma &bull; Zumark Pharma</div>
-<div class="bg-text-line reverse">Zumark Pharma &bull; Zumark Pharma &bull; Zumark Pharma</div>
-<div class="bg-text-line">Zumark Pharma &bull; Zumark Pharma &bull; Zumark Pharma</div>
+  <div class="bg-text-line">Zumark Pharma &bull; Zumark Pharma &bull; Zumark Pharma</div>
+  <div class="bg-text-line reverse">Zumark Pharma &bull; Zumark Pharma &bull; Zumark Pharma</div>
+  <div class="bg-text-line">Zumark Pharma &bull; Zumark Pharma &bull; Zumark Pharma</div>
 </div>
 
 <nav>
-<div class="logo-container" onclick="openPage('home')">
-<div class="logo-main-row">
-<img src="1795191878034.png" alt="ZuMark Pharma Logo" class="logo-img">
-<span class="brand-name">ZUMARK PHARMA<sup class="reg-mark">&reg;</sup></span>
-</div>
-<span class="logo-tagline">A New Vision for Better Health</span>
-</div>
+  <div class="logo-container" onclick="openPage('home')">
+    <div class="logo-main-row">
+      <img src="1795191878034.png" alt="ZuMark Pharma Logo" class="logo-img">
+      <span class="brand-name">ZUMARK PHARMA<sup class="reg-mark">&reg;</sup></span>
+    </div>
+    <span class="logo-tagline">A New Vision for Better Health</span>
+  </div>
 
-<button class="menu-toggle" aria-label="Toggle navigation" onclick="toggleMenu()">
-<span></span>
-<span></span>
-<span></span>
-</button>
+  <button class="menu-toggle" aria-label="Toggle navigation" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 
-<div class="nav-links" id="navLinks">
-<a id="nav-home" class="active" onclick="openPage('home')">Home</a>
-<a id="nav-products" onclick="openPage('products')">Products</a>
-<a id="nav-about" onclick="openPage('about')">About</a>
-<a id="nav-founder" onclick="openPage('founder')">Founder</a>
-<a id="nav-contact" onclick="openPage('contact')">Contact</a>
-</div>
+  <div class="nav-links" id="navLinks">
+    <a id="nav-home" class="active" onclick="openPage('home')">Home</a>
+    <a id="nav-products" onclick="openPage('products')">Products</a>
+    <a id="nav-about" onclick="openPage('about')">About</a>
+    <a id="nav-founder" onclick="openPage('founder')">Founder</a>
+    <a id="nav-contact" onclick="openPage('contact')">Contact</a>
+  </div>
 </nav>
 
 <div id="page-home" class="page-view active">
-<header class="animate-fade-in">
-<h1>A New Vision for Better Health</h1>
-<p>Welcome to ZuMark Pharma. We are committed to delivering premium quality dermatological and general healthcare formulations with uncompromising clarity and scientific precision.</p>
-<div class="header-tagline">ZUMARK PHARMA</div>
-<div class="hero-cta-group">
-<a class="hero-btn primary" onclick="openPage('products')">Explore Products</a>
-<a class="hero-btn secondary" onclick="openPage('about')">About ZuMark Pharma</a>
-</div>
-</header>
+  <header class="animate-fade-in">
+    <h1>A New Vision for Better Health</h1>
+    <p>Welcome to ZuMark Pharma. We are committed to delivering premium quality dermatological and general healthcare formulations with uncompromising clarity and scientific precision.</p>
+    <div class="header-tagline">ZUMARK PHARMA</div>
+    <div class="hero-cta-group">
+      <a class="hero-btn primary" href="#interactive-showcase">Explore 3D Showcase</a>
+      <a class="hero-btn secondary" onclick="openPage('about')">About ZuMark Pharma</a>
+    </div>
+  </header>
 
-<section class="products-section">
-<h2 class="section-title">Our Premier Product Range</h2>
-<div class="product-grid">
-<div class="product-card">
-<img src="cream.jpg" alt="Mela Mark Cream" class="product-image">
-<div class="product-content">
-<div>
-<h3>Mela Mark Cream</h3>
-<p class="tagline">For Pigmentation & Uneven Skin Tone</p>
-<div class="salt-section">
-<div class="salt-title">Active Composition</div>
-<div class="salt-list">Betamethasone Valerate, Clindamycin Phosphate, Nicotinamide, Vitamin E Acetate</div>
-</div>
-<div class="salt-title">Targeted Benefits</div>
-<ul class="benefits-list">
-<li>Reduces Dark Spots</li>
-<li>Effective Melasma Care</li>
-<li>Brightens & Evens Complexion</li>
-</ul>
-</div>
-<a href="https://wa.me/917860279945?text=I%20would%20like%20to%20inquire%20about%20Mela%20Mark%20Cream" class="inquire-btn" target="_blank" rel="noopener noreferrer">Inquire via WhatsApp</a>
-</div>
-</div>
+  <!-- FROISSANT-STYLE STICKY SCROLL SHOWCASE -->
+  <section id="interactive-showcase" class="showcase-wrapper">
+    <div class="showcase-stage">
+      <!-- Left Column: Dynamic Typography -->
+      <div class="showcase-text-col">
+        <!-- Slide 0: Mela Mark Cream -->
+        <div class="showcase-slide-info active" data-slide="0">
+          <span class="showcase-eyebrow">Dermatology Range &bull; 30g</span>
+          <h2 class="showcase-headline">MELA MARK <span>CREAM</span></h2>
+          <p class="showcase-sub">Advanced skin brightening formula for stubborn pigmentation, melasma care, and uneven skin tone.</p>
+          <div class="showcase-salt-pill">
+            <strong>Active Composition</strong>
+            <span>Betamethasone Valerate, Clindamycin Phosphate, Nicotinamide, Vitamin E Acetate</span>
+          </div>
+          <a href="https://wa.me/917860279945?text=I%20would%20like%20to%20inquire%20about%20Mela%20Mark%20Cream" class="showcase-cta" target="_blank" rel="noopener noreferrer">Inquire on WhatsApp</a>
+        </div>
 
-<div class="product-card">
-<img src="oints.jpg" alt="Mela Mark S Ointment" class="product-image">
-<div class="product-content">
-<div>
-<h3>Mela Mark S Ointment</h3>
-<p class="tagline">Advanced Pigmentation & Dark Spot Therapy</p>
-<div class="salt-section">
-<div class="salt-title">Active Composition</div>
-<div class="salt-list">Clobetasol Propionate & Salicylic Acid</div>
-</div>
-<div class="salt-title">Targeted Benefits</div>
-<ul class="benefits-list">
-<li>Lightens Stubborn Pigmentation</li>
-<li>Soothes Skin Irritation</li>
-<li>Promotes Smooth, Clear Skin</li>
-</ul>
-</div>
-<a href="https://wa.me/917860279945?text=I%20would%20like%20to%20inquire%20about%20Mela%20Mark%20S%20Ointment" class="inquire-btn" target="_blank" rel="noopener noreferrer">Inquire via WhatsApp</a>
-</div>
-</div>
+        <!-- Slide 1: Mela Mark S Ointment -->
+        <div class="showcase-slide-info" data-slide="1">
+          <span class="showcase-eyebrow">Targeted Therapy &bull; 15g</span>
+          <h2 class="showcase-headline">MELA MARK S <span>OINTMENT</span></h2>
+          <p class="showcase-sub">Potent dual-action ointment that reduces dark spots, lightens pigmentation, and soothes irritation.</p>
+          <div class="showcase-salt-pill">
+            <strong>Active Composition</strong>
+            <span>Clobetasol Propionate &amp; Salicylic Acid</span>
+          </div>
+          <a href="https://wa.me/917860279945?text=I%20would%20like%20to%20inquire%20about%20Mela%20Mark%20S%20Ointment" class="showcase-cta" target="_blank" rel="noopener noreferrer">Inquire on WhatsApp</a>
+        </div>
 
-<div class="product-card">
-<img src="soap.jpg" alt="Mela Mark Soap" class="product-image">
-<div class="product-content">
-<div>
-<h3>Mela Mark Soap</h3>
-<p class="tagline">Premium Dermatological Cleansing Bar</p>
-<div class="salt-section">
-<div class="salt-title">Key Ingredients</div>
-<div class="salt-list">Enriched with Almond Oil, Coconut Oil, Aloe Vera Extract, and Glycerin</div>
-</div>
-<div class="salt-title">Usage</div>
-<p style="font-size: 0.85rem; margin-bottom: 15px; line-height: 1.5;">Gentle cleansing bar formulated to maintain skin hydration while supporting the Mela Mark treatment regimen.</p>
-</div>
-<a href="https://wa.me/917860279945?text=I%20would%20like%20to%20inquire%20about%20Mela%20Mark%20Soap" class="inquire-btn" target="_blank" rel="noopener noreferrer">Inquire via WhatsApp</a>
-</div>
-</div>
-</div>
-</section>
+        <!-- Slide 2: Mela Mark Soap -->
+        <div class="showcase-slide-info" data-slide="2">
+          <span class="showcase-eyebrow">Daily Skin Care &bull; Cleansing Bar</span>
+          <h2 class="showcase-headline">MELA MARK <span>SOAP</span></h2>
+          <p class="showcase-sub">Gentle dermatological cleansing bar formulated to hydrate and nourish skin alongside your daily regimen.</p>
+          <div class="showcase-salt-pill">
+            <strong>Key Ingredients</strong>
+            <span>Almond Oil, Coconut Oil, Aloe Vera Extract &amp; Glycerin</span>
+          </div>
+          <a href="https://wa.me/917860279945?text=I%20would%20like%20to%20inquire%20about%20Mela%20Mark%20Soap" class="showcase-cta" target="_blank" rel="noopener noreferrer">Inquire on WhatsApp</a>
+        </div>
 
-<section class="coming-soon-section">
-<div class="coming-soon-banner">
-<div class="coming-soon-badge">Coming Soon</div>
-<h2 class="coming-soon-title">Innovations on the Horizon</h2>
-<p class="coming-soon-desc">Expanding our commitment to holistic family health with advanced therapeutic solutions.</p>
-<div class="soon-grid">
-<div class="soon-item">
-<div class="soon-icon">&#128138;</div>
-<div class="soon-text">
-<h4>Advanced Antibiotics</h4>
-<p>High-efficacy formulations for reliable infection management.</p>
-</div>
-</div>
-<div class="soon-item">
-<div class="soon-icon">&#129653;</div>
-<div class="soon-text">
-<h4>Premium Cough Syrups</h4>
-<p>Soothing and effective relief for respiratory care.</p>
-</div>
-</div>
-</div>
-</div>
-</section>
+        <!-- Slide 3: Syrups & Tablets Range -->
+        <div class="showcase-slide-info" data-slide="3">
+          <span class="showcase-eyebrow">General Physician &bull; Expanding Lineup</span>
+          <h2 class="showcase-headline">SYRUPS &amp; <span>TABLETS</span></h2>
+          <p class="showcase-sub">High-efficacy antibiotic tablets and soothing cough syrups engineered for complete family respiratory and infection care.</p>
+          <div class="showcase-salt-pill">
+            <strong>Therapeutic Focus</strong>
+            <span>Allopathic General Care &bull; Respiratory &amp; Anti-Infective Formulations</span>
+          </div>
+          <a href="https://wa.me/917860279945?text=I%20would%20like%20to%20inquire%20about%20ZuMark%20Pharma%20Syrups%20and%20Tablets" class="showcase-cta" target="_blank" rel="noopener noreferrer">Pre-Book / Inquire</a>
+        </div>
+      </div>
+
+      <!-- Right Column: Floating Product Visuals -->
+      <div class="showcase-visual-col" id="showcaseTiltArea">
+        <div class="showcase-ring"></div>
+
+        <div class="showcase-img-card active" data-slide="0">
+          <img src="cream.jpg" alt="Mela Mark Cream">
+        </div>
+
+        <div class="showcase-img-card" data-slide="1">
+          <img src="oints.jpg" alt="Mela Mark S Ointment">
+        </div>
+
+        <div class="showcase-img-card" data-slide="2">
+          <img src="soap.jpg" alt="Mela Mark Soap">
+        </div>
+
+        <div class="showcase-img-card" data-slide="3">
+          <!-- Replace this div with <img src="syrup.jpg" alt="ZuMark Syrups & Tablets"> once image is added -->
+          <div class="pharma-pack-placeholder">
+            <div class="emoji-art">&#129653; &#128138;</div>
+            <h4>ZUMARK THERAPEUTICS</h4>
+            <p>Premium Cough Syrups &amp; Advanced Antibiotic Tablets</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide Progress Dots -->
+      <div class="showcase-dots">
+        <div class="showcase-dot active" onclick="goToShowcaseSlide(0)"></div>
+        <div class="showcase-dot" onclick="goToShowcaseSlide(1)"></div>
+        <div class="showcase-dot" onclick="goToShowcaseSlide(2)"></div>
+        <div class="showcase-dot" onclick="goToShowcaseSlide(3)"></div>
+      </div>
+    </div>
+
+    <!-- Scroll Trigger Steps -->
+    <div class="showcase-steps">
+      <div class="scroll-step" data-step="0"></div>
+      <div class="scroll-step" data-step="1"></div>
+      <div class="scroll-step" data-step="2"></div>
+      <div class="scroll-step" data-step="3"></div>
+    </div>
+  </section>
+
+  <!-- Full Product Grid -->
+  <section class="products-section">
+    <h2 class="section-title">Our Complete Product Catalog</h2>
+    <div class="product-grid">
+      <div class="product-card reveal-card">
+        <img src="cream.jpg" alt="Mela Mark Cream" class="product-image">
+        <div class="product-content">
+          <div>
+            <h3>Mela Mark Cream</h3>
+            <p class="tagline">For Pigmentation &amp; Uneven Skin Tone</p>
+            <div class="salt-section">
+              <div class="salt-title">Active Composition</div>
+              <div class="salt-list">Betamethasone Valerate, Clindamycin Phosphate, Nicotinamide, Vitamin E Acetate</div>
+            </div>
+            <div class="salt-title">Targeted Benefits</div>
+            <ul class="benefits-list">
+              <li>Reduces Dark Spots</li>
+              <li>Effective Melasma Care</li>
+              <li>Brightens &amp; Evens Complexion</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/917860279945?text=I%20would%20like%20to%20inquire%20about%20Mela%20Mark%20Cream" class="inquire-btn" target="_blank" rel="noopener noreferrer">Inquire via WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="product-card reveal-card">
+        <img src="oints.jpg" alt="Mela Mark S Ointment" class="product-image">
+        <div class="product-content">
+          <div>
+            <h3>Mela Mark S Ointment</h3>
+            <p class="tagline">Advanced Pigmentation &amp; Dark Spot Therapy</p>
+            <div class="salt-section">
+              <div class="salt-title">Active Composition</div>
+              <div class="salt-list">Clobetasol Propionate &amp; Salicylic Acid</div>
+            </div>
+            <div class="salt-title">Targeted Benefits</div>
+            <ul class="benefits-list">
+              <li>Lightens Stubborn Pigmentation</li>
+              <li>Soothes Skin Irritation</li>
+              <li>Promotes Smooth, Clear Skin</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/917860279945?text=I%20would%20like%20to%20inquire%20about%20Mela%20Mark%20S%20Ointment" class="inquire-btn" target="_blank" rel="noopener noreferrer">Inquire via WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="product-card reveal-card">
+        <img src="soap.jpg" alt="Mela Mark Soap" class="product-image">
+        <div class="product-content">
+          <div>
+            <h3>Mela Mark Soap</h3>
+            <p class="tagline">Premium Dermatological Cleansing Bar</p>
+            <div class="salt-section">
+              <div class="salt-title">Key Ingredients</div>
+              <div class="salt-list">Enriched with Almond Oil, Coconut Oil, Aloe Vera Extract, and Glycerin</div>
+            </div>
+            <div class="salt-title">Usage</div>
+            <p style="font-size: 0.85rem; margin-bottom: 15px; line-height: 1.5;">Gentle cleansing bar formulated to maintain skin hydration while supporting the Mela Mark treatment regimen.</p>
+          </div>
+          <a href="https://wa.me/917860279945?text=I%20would%20like%20to%20inquire%20about%20Mela%20Mark%20Soap" class="inquire-btn" target="_blank" rel="noopener noreferrer">Inquire via WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="coming-soon-section">
+    <div class="coming-soon-banner">
+      <div class="coming-soon-badge">Coming Soon</div>
+      <h2 class="coming-soon-title">Innovations on the Horizon</h2>
+      <p class="coming-soon-desc">Expanding our commitment to holistic family health with advanced therapeutic solutions.</p>
+      <div class="soon-grid">
+        <div class="soon-item">
+          <div class="soon-icon">&#128138;</div>
+          <div class="soon-text">
+            <h4>Advanced Antibiotic Tablets</h4>
+            <p>High-efficacy formulations for reliable infection management.</p>
+          </div>
+        </div>
+        <div class="soon-item">
+          <div class="soon-icon">&#129653;</div>
+          <div class="soon-text">
+            <h4>Premium Cough Syrups</h4>
+            <p>Soothing and effective relief for respiratory care.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
 
 <div id="page-products" class="page-view">
-<section class="products-section">
-<h2 class="section-title">Our Premier Product Range</h2>
-<div class="product-grid">
-<div class="product-card">
-<img src="cream.jpg" alt="Mela Mark Cream" class="product-image">
-<div class="product-content">
-<div>
-<h3>Mela Mark Cream</h3>
-<p class="tagline">For Pigmentation & Uneven Skin Tone</p>
-<div class="salt-section">
-<div class="salt-title">Active Composition</div>
-<div class="salt-list">Betamethasone Valerate, Clindamycin Phosphate, Nicotinamide, Vitamin E Acetate</div>
-</div>
-<div class="salt-title">Targeted Benefits</div>
-<ul class="benefits-list">
-<li>Reduces Dark Spots</li>
-<li>Effective Melasma Care</li>
-<li>Brightens & Evens Complexion</li>
-</ul>
-</div>
-<a href="https://wa.me/917860279945?text=I%20would%20like%20to%20inquire%20about%20Mela%20Mark%20Cream" class="inquire-btn" target="_blank" rel="noopener noreferrer">Inquire via WhatsApp</a>
-</div>
-</div>
+  <section class="products-section">
+    <h2 class="section-title">Our Premier Product Range</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="cream.jpg" alt="Mela Mark Cream" class="product-image">
+        <div class="product-content">
+          <div>
+            <h3>Mela Mark Cream</h3>
+            <p class="tagline">For Pigmentation &amp; Uneven Skin Tone</p>
+            <div class="salt-section">
+              <div class="salt-title">Active Composition</div>
+              <div class="salt-list">Betamethasone Valerate, Clindamycin Phosphate, Nicotinamide, Vitamin E Acetate</div>
+            </div>
+            <div class="salt-title">Targeted Benefits</div>
+            <ul class="benefits-list">
+              <li>Reduces Dark Spots</li>
+              <li>Effective Melasma Care</li>
+              <li>Brightens &amp; Evens Complexion</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/917860279945?text=I%20would%20like%20to%20inquire%20about%20Mela%20Mark%20Cream" class="inquire-btn" target="_blank" rel="noopener noreferrer">Inquire via WhatsApp</a>
+        </div>
+      </div>
 
-<div class="product-card">
-<img src="oints.jpg" alt="Mela Mark S Ointment" class="product-image">
-<div class="product-content">
-<div>
-<h3>Mela Mark S Ointment</h3>
-<p class="tagline">Advanced Pigmentation & Dark Spot Therapy</p>
-<div class="salt-section">
-<div class="salt-title">Active Composition</div>
-<div class="salt-list">Clobetasol Propionate & Salicylic Acid</div>
-</div>
-<div class="salt-title">Targeted Benefits</div>
-<ul class="benefits-list">
-<li>Lightens Stubborn Pigmentation</li>
-<li>Soothes Skin Irritation</li>
-<li>Promotes Smooth, Clear Skin</li>
-</ul>
-</div>
-<a href="https://wa.me/917860279945?text=I%20would%20like%20to%20inquire%20about%20Mela%20Mark%20S%20Ointment" class="inquire-btn" target="_blank" rel="noopener noreferrer">Inquire via WhatsApp</a>
-</div>
-</div>
+      <div class="product-card">
+        <img src="oints.jpg" alt="Mela Mark S Ointment" class="product-image">
+        <div class="product-content">
+          <div>
+            <h3>Mela Mark S Ointment</h3>
+            <p class="tagline">Advanced Pigmentation &amp; Dark Spot Therapy</p>
+            <div class="salt-section">
+              <div class="salt-title">Active Composition</div>
+              <div class="salt-list">Clobetasol Propionate &amp; Salicylic Acid</div>
+            </div>
+            <div class="salt-title">Targeted Benefits</div>
+            <ul class="benefits-list">
+              <li>Lightens Stubborn Pigmentation</li>
+              <li>Soothes Skin Irritation</li>
+              <li>Promotes Smooth, Clear Skin</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/917860279945?text=I%20would%20like%20to%20inquire%20about%20Mela%20Mark%20S%20Ointment" class="inquire-btn" target="_blank" rel="noopener noreferrer">Inquire via WhatsApp</a>
+        </div>
+      </div>
 
-<div class="product-card">
-<img src="soap.jpg" alt="Mela Mark Soap" class="product-image">
-<div class="product-content">
-<div>
-<h3>Mela Mark Soap</h3>
-<p class="tagline">Premium Dermatological Cleansing Bar</p>
-<div class="salt-section">
-<div class="salt-title">Key Ingredients</div>
-<div class="salt-list">Enriched with Almond Oil, Coconut Oil, Aloe Vera Extract, and Glycerin</div>
-</div>
-<div class="salt-title">Usage</div>
-<p style="font-size: 0.85rem; margin-bottom: 15px; line-height: 1.5;">Gentle cleansing bar formulated to maintain skin hydration while supporting the Mela Mark treatment regimen.</p>
-</div>
-<a href="https://wa.me/917860279945?text=I%20would%20like%20to%20inquire%20about%20Mela%20Mark%20Soap" class="inquire-btn" target="_blank" rel="noopener noreferrer">Inquire via WhatsApp</a>
-</div>
-</div>
-</div>
-</section>
+      <div class="product-card">
+        <img src="soap.jpg" alt="Mela Mark Soap" class="product-image">
+        <div class="product-content">
+          <div>
+            <h3>Mela Mark Soap</h3>
+            <p class="tagline">Premium Dermatological Cleansing Bar</p>
+            <div class="salt-section">
+              <div class="salt-title">Key Ingredients</div>
+              <div class="salt-list">Enriched with Almond Oil, Coconut Oil, Aloe Vera Extract, and Glycerin</div>
+            </div>
+            <div class="salt-title">Usage</div>
+            <p style="font-size: 0.85rem; margin-bottom: 15px; line-height: 1.5;">Gentle cleansing bar formulated to maintain skin hydration while supporting the Mela Mark treatment regimen.</p>
+          </div>
+          <a href="https://wa.me/917860279945?text=I%20would%20like%20to%20inquire%20about%20Mela%20Mark%20Soap" class="inquire-btn" target="_blank" rel="noopener noreferrer">Inquire via WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
 
 <div id="page-about" class="page-view">
-<section class="about-section">
-<div class="about-content">
-<h2 class="about-h2">About ZuMark Pharma</h2>
-<p class="about-p">
-ZuMark Pharma is a trusted and rapidly growing allopathic pharmaceutical company dedicated to making high-quality, safe, and affordable healthcare accessible to every family. Specializing in the Dermatology and General Physician segments, we deliver clinically reliable, result-oriented formulations designed to meet everyday therapeutic needs without compromising on purity or safety.
-</p>
-<p class="about-p">
-Operating from our corporate base in the Mumbai region, we ensure that every product undergoes stringent quality control checks. Our commitment lies in building lasting trust with medical practitioners, chemists, and patients across India through ethical practices and continuous innovation.
-</p>
+  <section class="about-section">
+    <div class="about-content">
+      <h2 class="about-h2">About ZuMark Pharma</h2>
+      <p class="about-p">
+        ZuMark Pharma is a trusted and rapidly growing allopathic pharmaceutical company dedicated to making high-quality, safe, and affordable healthcare accessible to every family. Specializing in the Dermatology and General Physician segments, we deliver clinically reliable, result-oriented formulations designed to meet everyday therapeutic needs without compromising on purity or safety.
+      </p>
+      <p class="about-p">
+        Operating from our corporate base in the Mumbai region, we ensure that every product undergoes stringent quality control checks. Our commitment lies in building lasting trust with medical practitioners, chemists, and patients across India through ethical practices and continuous innovation.
+      </p>
 
-<div class="contact-card-box">
-<p><strong>Corporate Office:</strong> Gala No. 04, 184 Swami Vivekanand, Santosh Bhawan Naka, Nalasopara East, Mumbai region, India - 401209</p>
-<p><strong>Email:</strong> info@zumarkpharma.in</p>
-</div>
+      <div class="contact-card-box">
+        <p><strong>Corporate Office:</strong> Gala No. 04, 184 Swami Vivekanand, Santosh Bhawan Naka, Nalasopara East, Mumbai region, India - 401209</p>
+        <p><strong>Email:</strong> info@zumarkpharma.in</p>
+      </div>
 
-<div class="stats-grid">
-<div class="stat-card">
-<h3 style="color: var(--corporate-navy); margin-bottom: 10px; font-size: 1.15rem;">Quality Assured</h3>
-<p style="font-size: 0.9rem; color: var(--text-dark);">Stringent clinical standards for utmost patient safety.</p>
-</div>
-<div class="stat-card">
-<h3 style="color: var(--corporate-navy); margin-bottom: 10px; font-size: 1.15rem;">Doctor Trusted</h3>
-<p style="font-size: 0.9rem; color: var(--text-dark);">Formulations recommended by leading medical experts.</p>
-</div>
-<div class="stat-card">
-<h3 style="color: var(--corporate-navy); margin-bottom: 10px; font-size: 1.15rem;">Affordable Care</h3>
-<p style="font-size: 0.9rem; color: var(--text-dark);">Making premium healthcare accessible to every household.</p>
-</div>
-</div>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <h3 style="color: var(--corporate-navy); margin-bottom: 10px; font-size: 1.15rem;">Quality Assured</h3>
+          <p style="font-size: 0.9rem; color: var(--text-dark);">Stringent clinical standards for utmost patient safety.</p>
+        </div>
+        <div class="stat-card">
+          <h3 style="color: var(--corporate-navy); margin-bottom: 10px; font-size: 1.15rem;">Doctor Trusted</h3>
+          <p style="font-size: 0.9rem; color: var(--text-dark);">Formulations recommended by leading medical experts.</p>
+        </div>
+        <div class="stat-card">
+          <h3 style="color: var(--corporate-navy); margin-bottom: 10px; font-size: 1.15rem;">Affordable Care</h3>
+          <p style="font-size: 0.9rem; color: var(--text-dark);">Making premium healthcare accessible to every household.</p>
+        </div>
+      </div>
 
-<div class="promise-box">
-<h3 style="font-size: 1.5rem; margin-bottom: 10px;">Our Commitment</h3>
-<p style="font-size: 0.95rem; color: var(--white); opacity: 0.95; line-height: 1.6;">
-To continuously expand our therapeutic range while maintaining uncompromising excellence in pharmaceutical formulation.
-</p>
-</div>
-</div>
-</section>
+      <div class="promise-box">
+        <h3 style="font-size: 1.5rem; margin-bottom: 10px;">Our Commitment</h3>
+        <p style="font-size: 0.95rem; color: var(--white); opacity: 0.95; line-height: 1.6;">
+          To continuously expand our therapeutic range while maintaining uncompromising excellence in pharmaceutical formulation.
+        </p>
+      </div>
+    </div>
+  </section>
 </div>
 
 <div id="page-founder" class="page-view">
-<section class="founder-section">
-<div class="founder-container">
-<div class="founder-header-flex">
-<img src="founder.jpg" alt="Founder & Director, ZuMark Pharma" class="founder-photo" onerror="this.src='1795191878034.png'">
-<div>
-<span class="founder-badge">Leadership & Vision</span>
-<h2 class="founder-title">Founder & Director</h2>
-<p style="color: var(--text-dark); font-size: 1rem;">Driving Excellence in Allopathic Healthcare</p>
-</div>
-</div>
+  <section class="founder-section">
+    <div class="founder-container">
+      <div class="founder-header-flex">
+        <img src="founder.jpg" alt="Founder & Director, ZuMark Pharma" class="founder-photo" onerror="this.src='1795191878034.png'">
+        <div>
+          <span class="founder-badge">Leadership &amp; Vision</span>
+          <h2 class="founder-title">Founder &amp; Director</h2>
+          <p style="color: var(--text-dark); font-size: 1rem;">Driving Excellence in Allopathic Healthcare</p>
+        </div>
+      </div>
 
-<div class="founder-quote">
-“Quality healthcare should never be a privilege—it must be accessible, reliable, and affordable for every family.”
-</div>
+      <div class="founder-quote">
+        “Quality healthcare should never be a privilege—it must be accessible, reliable, and affordable for every family.”
+      </div>
 
-<div class="founder-text">
-<p>
-As the Founder and Director of ZuMark Pharma, my mission is anchored in the belief that effective medical treatment should be within reach of every individual. With a deep understanding of the pharmaceutical landscape, I established ZuMark Pharma to bridge the gap between premium clinical formulations and everyday affordability.
-</p>
-<p>
-We focus intensely on Dermatology and General Physician care, ensuring that each product—from advanced creams to essential therapeutics—delivers tangible results. Operating from our headquarters in the Mumbai region, we maintain rigorous oversight of our distribution and quality standards, ensuring complete reliability for our partners and patients.
-</p>
-<p>
-Looking ahead, we are expanding our portfolio to include critical antibiotics and respiratory care, reinforcing our dedication to comprehensive community health.
-</p>
-</div>
+      <div class="founder-text">
+        <p>
+          As the Founder and Director of ZuMark Pharma, my mission is anchored in the belief that effective medical treatment should be within reach of every individual. With a deep understanding of the pharmaceutical landscape, I established ZuMark Pharma to bridge the gap between premium clinical formulations and everyday affordability.
+        </p>
+        <p>
+          We focus intensely on Dermatology and General Physician care, ensuring that each product—from advanced creams to essential therapeutics—delivers tangible results. Operating from our headquarters in the Mumbai region, we maintain rigorous oversight of our distribution and quality standards, ensuring complete reliability for our partners and patients.
+        </p>
+        <p>
+          Looking ahead, we are expanding our portfolio to include critical antibiotics and respiratory care, reinforcing our dedication to comprehensive community health.
+        </p>
+      </div>
 
-<div class="founder-contact-strip">
-<p><strong>Corporate Headquarters:</strong> Gala No. 04, 184 Swami Vivekanand, Santosh Bhawan Naka, Nalasopara East, Mumbai region, India - 401209</p>
-</div>
-</div>
-</section>
+      <div class="founder-contact-strip">
+        <p><strong>Corporate Headquarters:</strong> Gala No. 04, 184 Swami Vivekanand, Santosh Bhawan Naka, Nalasopara East, Mumbai region, India - 401209</p>
+      </div>
+    </div>
+  </section>
 </div>
 
 <div id="page-contact" class="page-view">
-<section class="form-section">
-<div class="form-container">
-<div class="form-header">
-<h2>Customer Inquiry & Support</h2>
-<p>Connect with us directly for product details, distributorship, or medical inquiries.</p>
-</div>
+  <section class="form-section">
+    <div class="form-container">
+      <div class="form-header">
+        <h2>Customer Inquiry &amp; Support</h2>
+        <p>Connect with us directly for product details, distributorship, or medical inquiries.</p>
+      </div>
 
-<form action="https://api.web3forms.com/submit" method="POST">
-<input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+      <form action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
 
-<div class="form-group">
-<label for="name">Your Name</label>
-<input type="text" id="name" name="name" required placeholder="Enter your full name">
-</div>
-<div class="form-group">
-<label for="email">Your Email Address</label>
-<input type="email" id="email" name="email" required placeholder="name@example.com">
-</div>
-<div class="form-group">
-<label for="phone">Phone Number</label>
-<input type="tel" id="phone" name="phone" required placeholder="Your contact number">
-</div>
-<div class="form-group">
-<label for="inquiry-type">Nature of Inquiry</label>
-<select id="inquiry-type" name="subject">
-<option value="Product Information">Product Information</option>
-<option value="Distributorship Opportunity">Distributorship / Business Partnership</option>
-<option value="Medical Feedback">Medical Practitioner Feedback</option>
-<option value="General Inquiry">General Inquiry</option>
-</select>
-</div>
-<div class="form-group">
-<label for="message">Detailed Message</label>
-<textarea id="message" name="message" rows="5" required placeholder="How can we assist you today?"></textarea>
-</div>
-<button type="submit" class="submit-btn" style="background-color: var(--brand-red); color: var(--white); border: none; border-radius: 6px; padding: 14px; font-size: 1.1rem; font-weight: 700; cursor: pointer; width: 100%;">Submit Official Inquiry</button>
-</form>
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" required placeholder="Enter your full name">
+        </div>
+        <div class="form-group">
+          <label for="email">Your Email Address</label>
+          <input type="email" id="email" name="email" required placeholder="name@example.com">
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" required placeholder="Your contact number">
+        </div>
+        <div class="form-group">
+          <label for="inquiry-type">Nature of Inquiry</label>
+          <select id="inquiry-type" name="subject">
+            <option value="Product Information">Product Information</option>
+            <option value="Distributorship Opportunity">Distributorship / Business Partnership</option>
+            <option value="Medical Feedback">Medical Practitioner Feedback</option>
+            <option value="General Inquiry">General Inquiry</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Detailed Message</label>
+          <textarea id="message" name="message" rows="5" required placeholder="How can we assist you today?"></textarea>
+        </div>
+        <button type="submit" class="submit-btn" style="background-color: var(--brand-red); color: var(--white); border: none; border-radius: 6px; padding: 14px; font-size: 1.1rem; font-weight: 700; cursor: pointer; width: 100%;">Submit Official Inquiry</button>
+      </form>
 
-<div class="social-connect-box">
-<h3>Connect With Us on Social Media</h3>
-<div class="social-links-row">
-<a href="https://www.facebook.com/share/1FXmKhGJAE/" class="social-btn btn-facebook" target="_blank" rel="noopener noreferrer">Facebook</a>
-<a href="https://www.instagram.com/zumarkpharma?avpt=ZnZ6cWphbzR6dHZj" class="social-btn btn-instagram" target="_blank" rel="noopener noreferrer">Instagram</a>
-</div>
-</div>
+      <div class="social-connect-box">
+        <h3>Connect With Us on Social Media</h3>
+        <div class="social-links-row">
+          <a href="https://www.facebook.com/share/1FXmKhGJAE/" class="social-btn btn-facebook" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a href="https://www.instagram.com/zumarkpharma?avpt=ZnZ6cWphbzR6dHZj" class="social-btn btn-instagram" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </div>
+      </div>
 
-<div style="text-align: center; margin: 30px 0 15px 0; font-weight: 700; color: var(--corporate-navy); font-size: 1.1rem;">OR CONNECT INSTANTLY</div>
+      <div style="text-align: center; margin: 30px 0 15px 0; font-weight: 700; color: var(--corporate-navy); font-size: 1.1rem;">OR CONNECT INSTANTLY</div>
 
-<div class="inquiry-options">
-<a href="https://wa.me/917860279945?text=Hello%20ZuMark%20Pharma,%20I%20would%20like%20to%20make%20an%20inquiry." class="inquiry-btn-channel btn-whatsapp" target="_blank" rel="noopener noreferrer">
-&#128172; Chat on WhatsApp
-<span>Fastest Response</span>
-</a>
-<a href="mailto:info@zumarkpharma.in?subject=Website Inquiry" class="inquiry-btn-channel btn-email">
-&#9993;&#65039; Send Direct Email
-<span>Official Correspondence</span>
-</a>
-</div>
-</div>
-</section>
+      <div class="inquiry-options">
+        <a href="https://wa.me/917860279945?text=Hello%20ZuMark%20Pharma,%20I%20would%20like%20to%20make%20an%20inquiry." class="inquiry-btn-channel btn-whatsapp" target="_blank" rel="noopener noreferrer">
+          &#128172; Chat on WhatsApp
+          <span>Fastest Response</span>
+        </a>
+        <a href="mailto:info@zumarkpharma.in?subject=Website Inquiry" class="inquiry-btn-channel btn-email">
+          &#9993;&#65039; Send Direct Email
+          <span>Official Correspondence</span>
+        </a>
+      </div>
+    </div>
+  </section>
 </div>
 
 <footer>
-<div class="footer-main-title">ZUMARK PHARMA</div>
-<div class="footer-tagline">A New Vision for Better Health</div>
-<div class="footer-contact">
-<p style="margin-bottom: 10px;"><strong>Corporate Office:</strong> Gala No. 04, 184 Swami Vivekanand, Santosh Bhawan Naka, Nalasopara East, Mumbai Region, India - 401209</p>
-<p><strong>Email:</strong> info@zumarkpharma.in</p>
-<p style="margin-top: 10px;">
-<a href="https://www.facebook.com/share/1FXmKhGJAE/" target="_blank" rel="noopener noreferrer" style="color: #FFFFFF; text-decoration: underline; margin-right: 15px;">Facebook</a>
-<a href="https://www.instagram.com/zumarkpharma?avpt=ZnZ6cWphbzR6dHZj" target="_blank" rel="noopener noreferrer" style="color: #FFFFFF; text-decoration: underline;">Instagram</a>
-</p>
-</div>
+  <div class="footer-main-title">ZUMARK PHARMA</div>
+  <div class="footer-tagline">A New Vision for Better Health</div>
+  <div class="footer-contact">
+    <p style="margin-bottom: 10px;"><strong>Corporate Office:</strong> Gala No. 04, 184 Swami Vivekanand, Santosh Bhawan Naka, Nalasopara East, Mumbai Region, India - 401209</p>
+    <p><strong>Email:</strong> info@zumarkpharma.in</p>
+    <p style="margin-top: 10px;">
+      <a href="https://www.facebook.com/share/1FXmKhGJAE/" target="_blank" rel="noopener noreferrer" style="color: #FFFFFF; text-decoration: underline; margin-right: 15px;">Facebook</a>
+      <a href="https://www.instagram.com/zumarkpharma?avpt=ZnZ6cWphbzR6dHZj" target="_blank" rel="noopener noreferrer" style="color: #FFFFFF; text-decoration: underline;">Instagram</a>
+    </p>
+  </div>
 </footer>
 
 <script>
+// Page Navigation
 function openPage(pageName) {
-const pages = document.querySelectorAll('.page-view');
-pages.forEach(page => page.classList.remove('active'));
-const navLinks = document.querySelectorAll('.nav-links a');
-navLinks.forEach(link => link.classList.remove('active'));
-const targetPage = document.getElementById('page-' + pageName);
-if (targetPage) targetPage.classList.add('active');
-const activeNav = document.getElementById('nav-' + pageName);
-if (activeNav) activeNav.classList.add('active');
-window.scrollTo({ top: 0, behavior: 'smooth' });
+  const pages = document.querySelectorAll('.page-view');
+  pages.forEach(page => page.classList.remove('active'));
+  const navLinks = document.querySelectorAll('.nav-links a');
+  navLinks.forEach(link => link.classList.remove('active'));
+  const targetPage = document.getElementById('page-' + pageName);
+  if (targetPage) targetPage.classList.add('active');
+  const activeNav = document.getElementById('nav-' + pageName);
+  if (activeNav) activeNav.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 
-// Close mobile menu after selection
-const navLinksContainer = document.getElementById('navLinks');
-if (navLinksContainer.classList.contains('active')) {
-toggleMenu();
-}
+  const navLinksContainer = document.getElementById('navLinks');
+  if (navLinksContainer.classList.contains('active')) {
+    toggleMenu();
+  }
+
+  if (pageName === 'home' && typeof ScrollTrigger !== 'undefined') {
+    setTimeout(() => ScrollTrigger.refresh(), 150);
+  }
 }
 
 function toggleMenu() {
-const navLinks = document.getElementById('navLinks');
-const menuToggle = document.querySelector('.menu-toggle');
-navLinks.classList.toggle('active');
-menuToggle.classList.toggle('active');
+  const navLinks = document.getElementById('navLinks');
+  const menuToggle = document.querySelector('.menu-toggle');
+  navLinks.classList.toggle('active');
+  menuToggle.classList.toggle('active');
 }
+
+// Interactive Scroll Showcase Controller
+let currentSlide = 0;
+
+function activateShowcaseSlide(index) {
+  if (index === currentSlide) return;
+  currentSlide = index;
+
+  document.querySelectorAll('.showcase-slide-info').forEach((el, i) => {
+    el.classList.toggle('active', i === index);
+  });
+
+  document.querySelectorAll('.showcase-img-card').forEach((el, i) => {
+    el.classList.toggle('active', i === index);
+  });
+
+  document.querySelectorAll('.showcase-dot').forEach((el, i) => {
+    el.classList.toggle('active', i === index);
+  });
+}
+
+function goToShowcaseSlide(index) {
+  const steps = document.querySelectorAll('.scroll-step');
+  if (steps[index]) {
+    steps[index].scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+  activateShowcaseSlide(index);
+}
+
+// Initialize GSAP ScrollTrigger & 3D Tilt
+window.addEventListener('DOMContentLoaded', () => {
+  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Trigger slide changes as user scrolls through steps
+    document.querySelectorAll('.scroll-step').forEach((step, index) => {
+      ScrollTrigger.create({
+        trigger: step,
+        start: 'top 55%',
+        end: 'bottom 45%',
+        onEnter: () => activateShowcaseSlide(index),
+        onEnterBack: () => activateShowcaseSlide(index)
+      });
+    });
+
+    // Subtle scroll-driven rotation on the showcase ring
+    gsap.to('.showcase-ring', {
+      scale: 1.12,
+      scrollTrigger: {
+        trigger: '.showcase-wrapper',
+        start: 'top top',
+        end: 'bottom bottom',
+        scrub: 1
+      }
+    });
+
+    // Reveal product cards smoothly on scroll
+    gsap.from('.reveal-card', {
+      y: 40,
+      opacity: 0,
+      duration: 0.7,
+      stagger: 0.15,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '.products-section',
+        start: 'top 80%'
+      }
+    });
+  }
+
+  // Interactive 3D Mouse Tilt on Showcase Product Visual
+  const tiltArea = document.getElementById('showcaseTiltArea');
+  if (tiltArea) {
+    tiltArea.addEventListener('mousemove', (e) => {
+      const rect = tiltArea.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      const activeCard = tiltArea.querySelector('.showcase-img-card.active');
+      if (activeCard) {
+        activeCard.style.transform = `scale(1.03) rotateY(${x * 22}deg) rotateX(${-y * 22}deg)`;
+      }
+    });
+
+    tiltArea.addEventListener('mouseleave', () => {
+      const activeCard = tiltArea.querySelector('.showcase-img-card.active');
+      if (activeCard) {
+        activeCard.style.transform = 'scale(1) rotateY(0deg) rotateX(0deg)';
+      }
+    });
+  }
+});
 </script>
 
 </body>
