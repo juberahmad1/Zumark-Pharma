@@ -142,7 +142,7 @@ footer b{font-family:'Bricolage Grotesque',sans-serif;font-size:1.7rem}
 <section class="pad" id="founder">
   <h2 class="t">Founder &amp; Director</h2>
   <div class="founder">
-    <img src="founder.jpg" alt="Founder and Director, ZuMark Pharma" onerror="this.onerror=null;this.removeAttribute('src')">
+    <img src="founder.png" alt="Founder and Director, ZuMark Pharma" onerror="this.onerror=null;this.removeAttribute('src')">
     <div>
       <div class="role">Driving excellence in allopathic healthcare</div>
       <blockquote>&ldquo;Quality healthcare should never be a privilege&mdash;it must be accessible, reliable, and affordable for every family.&rdquo;</blockquote>
@@ -281,14 +281,20 @@ try {
     }
     g.position.x = -.5; return g;
   }
-  const builders = [
-    () => tube(.7, 2.4, '#FFFFFF', '#1E293B', '#BD0000', 'MELA MARK', 'CREAM 30g', 0xBD0000),
-    () => tube(.55, 2.2, '#1E293B', '#FFFFFF', '#E04B4B', 'MELA MARK S', 'OINTMENT 15g', 0xBD0000),
-    soap, syrup
-  ];
-  const items = builders.map(fn => {
-    const pivot = new THREE.Group(), prod = fn(); pivot.add(prod);
-    pivot.rotation.z = (fn === soap) ? 0 : -.3; if (fn === soap) pivot.rotation.x = .35;
+  renderer.outputEncoding = THREE.sRGBEncoding;
+  const files = ['cream.jpg', 'oints.jpg', 'soap.jpg', '1795191878034.png'];
+  const loader = new THREE.TextureLoader();
+  const items = files.map(f => {
+    const pivot = new THREE.Group(), prod = new THREE.Group(); pivot.add(prod);
+    const face = new THREE.MeshStandardMaterial({color:0xffffff, roughness:.5, metalness:.05});
+    const edge = mat(0xdddddd, .6);
+    const card = new THREE.Mesh(new THREE.BoxGeometry(1, 1, .14), [edge, edge, edge, edge, face, face]);
+    card.scale.set(3.6, 3.6, 1); prod.add(card);
+    loader.load(f, t => {
+      t.encoding = THREE.sRGBEncoding; t.anisotropy = 8; face.map = t; face.needsUpdate = true;
+      const a = t.image.width / t.image.height, W = Math.min(4.2 * a, 4.6);
+      card.scale.set(W, W / a, 1);
+    }, undefined, () => {});
     pivot.scale.setScalar(.001); root.add(pivot); return {pivot, prod};
   });
 
@@ -306,7 +312,7 @@ try {
     items.forEach((it, i) => {
       const on = i === cur, s = it.pivot.scale.x + ((on ? 1 : .001) - it.pivot.scale.x) * .1;
       it.pivot.scale.setScalar(s); it.pivot.visible = s > .02;
-      it.prod.rotation.y = spin + prog * Math.PI * 4;
+      it.prod.rotation.y = (still ? 0 : Math.sin(spin * .6) * .35) + Math.max(-.5, Math.min(.5, prog * 4 - cur - .5)) * .9;
       it.pivot.position.y = still ? 0 : Math.sin(t * 1.4) * .12;
     });
     renderer.render(scene, cam); requestAnimationFrame(loop);
