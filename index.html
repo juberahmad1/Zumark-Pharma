@@ -94,6 +94,8 @@ label{font-weight:700;font-size:.85rem;color:var(--navy)}
 .burger{display:none;flex-direction:column;justify-content:space-between;width:30px;height:21px;background:none;border:0;cursor:pointer;padding:0}
 .burger span{display:block;height:3px;background:var(--navy);border-radius:3px;transition:transform .3s,opacity .3s}
 @media(max-width:768px){.burger{display:flex}nav .links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:center;background:#fff;padding:14px 0;box-shadow:0 8px 14px rgba(0,0,0,.12)}nav .links.open{display:flex}nav .links a{width:80%;text-align:center;padding:10px;font-size:1rem}.burger.open span:nth-child(1){transform:translateY(9px) rotate(45deg)}.burger.open span:nth-child(2){opacity:0}.burger.open span:nth-child(3){transform:translateY(-9px) rotate(-45deg)}}
+.page{display:none;min-height:60vh}.page.on{display:block}
+nav .links a.act{color:var(--red);background:rgba(189,0,0,.08)}
 footer{background:var(--red);color:#fff;text-align:center;padding:50px 5%}
 footer b{font-family:'Bricolage Grotesque',sans-serif;font-size:1.7rem}
 @media(max-width:768px){
@@ -114,11 +116,12 @@ footer b{font-family:'Bricolage Grotesque',sans-serif;font-size:1.7rem}
   <div>ZuMark Pharma &bull; ZuMark Pharma &bull; ZuMark Pharma</div>
 </div>
 <nav>
-  <a class="logo" href="#top"><b>ZUMARK PHARMA&reg;</b><small>A New Vision for Better Health</small></a>
+  <a class="logo" href="#home" data-p="home"><b>ZUMARK PHARMA&reg;</b><small>A New Vision for Better Health</small></a>
   <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
-  <div class="links" id="links"><a href="#products">Products</a><a href="#about">About</a><a href="#founder">Founder</a><a href="#contact">Contact</a></div>
+  <div class="links" id="links"><a href="#home" data-p="home">Home</a><a href="#products" data-p="products">Products</a><a href="#about" data-p="about">About</a><a href="#founder" data-p="founder">Founder</a><a href="#contact" data-p="contact">Contact</a></div>
 </nav>
 
+<div id="page-home" class="page on">
 <header class="hero" id="top">
   <h1>A New Vision for Better Health</h1>
   <p>Dermatology and general physician formulations, made with care in the Mumbai region and built for every family.</p>
@@ -151,6 +154,11 @@ footer b{font-family:'Bricolage Grotesque',sans-serif;font-size:1.7rem}
   </ul>
 </div></div>
 
+</div>
+<div id="page-products" class="page">
+<section class="pad"><h2 class="t">Our premier product range</h2><div class="grid" id="catalog2"></div></section>
+</div>
+<div id="page-about" class="page">
 <section class="pad" id="about">
   <h2 class="t">About ZuMark Pharma</h2>
   <div class="about">
@@ -178,6 +186,8 @@ footer b{font-family:'Bricolage Grotesque',sans-serif;font-size:1.7rem}
   </div>
 </section>
 
+</div>
+<div id="page-founder" class="page">
 <section class="pad" id="founder">
   <h2 class="t">Founder &amp; Director</h2>
   <div class="founder">
@@ -192,6 +202,8 @@ footer b{font-family:'Bricolage Grotesque',sans-serif;font-size:1.7rem}
   </div>
 </section>
 
+</div>
+<div id="page-contact" class="page">
 <section class="pad" id="contact">
   <h2 class="t">Contact us</h2>
   <form action="https://api.web3forms.com/submit" method="POST">
@@ -210,6 +222,7 @@ footer b{font-family:'Bricolage Grotesque',sans-serif;font-size:1.7rem}
   </div>
 </section>
 
+</div>
 <footer>
   <b>ZUMARK PHARMA</b><br>A New Vision for Better Health<br><br>
   Gala No. 04, 184 Swami Vivekanand, Santosh Bhawan Naka, Nalasopara East, Mumbai region, India - 401209<br>info@zumarkpharma.in
@@ -230,7 +243,7 @@ const copy = document.getElementById('copy'), dots = document.getElementById('do
 P.forEach((p, i) => {
   copy.insertAdjacentHTML('beforeend', `<div class="slide${i?'':' on'}"><div class="sub">${p.t}</div><h2>${p.n}</h2><p>${p.d}</p><div class="comp"><b>${i==2?'Key ingredients':'Composition'}</b>${p.c}</div>${p.rx?`<div class="rx">${RX}</div>`:''}<a class="btn red" target="_blank" rel="noopener noreferrer" href="${wa(p.n)}">${i==3?'Pre-book on WhatsApp':'Inquire on WhatsApp'}</a></div>`);
   dots.insertAdjacentHTML('beforeend', `<button aria-label="Show ${p.n}" class="${i?'':'on'}"></button>`);
-  if (i < 3) document.getElementById('catalog').insertAdjacentHTML('beforeend', `<div class="card"><img src="${p.img}" alt="${p.n}" onerror="this.remove()"><div class="in"><h3>${p.n}</h3><div class="tag">${p.t}</div><div style="font-size:.88rem"><b>${i==2?'Key ingredients':'Composition'}:</b> ${p.c}</div>${p.rx?`<div class="rx">${RX}</div>`:''}<a class="btn" target="_blank" rel="noopener noreferrer" href="${wa(p.n)}">Inquire via WhatsApp</a></div></div>`);
+  if (i < 3) ['catalog', 'catalog2'].forEach(id => document.getElementById(id).insertAdjacentHTML('beforeend', `<div class="card"><img src="${p.img}" alt="${p.n}" onerror="this.remove()"><div class="in"><h3>${p.n}</h3><div class="tag">${p.t}</div><div style="font-size:.88rem"><b>${i==2?'Key ingredients':'Composition'}:</b> ${p.c}</div>${p.rx?`<div class="rx">${RX}</div>`:''}<a class="btn" target="_blank" rel="noopener noreferrer" href="${wa(p.n)}">Inquire via WhatsApp</a></div></div>`));
 });
 const slides = [...copy.children], dotEls = [...dots.children];
 
@@ -247,7 +260,8 @@ function setSlide(i) {
   stage.style.backgroundColor = P[i].bg;
 }
 function onScroll() {
-  const r = document.getElementById('show').getBoundingClientRect();
+  const sh = document.getElementById('show'); if (!sh.offsetHeight) return;
+  const r = sh.getBoundingClientRect();
   prog = Math.min(1, Math.max(0, -r.top / (r.height - innerHeight)));
   setSlide(Math.min(3, Math.floor(prog * 4)));
 }
@@ -362,6 +376,16 @@ try {
 } catch (e) {
   document.getElementById('gl').style.display = 'none';
 }
+
+function openPage(n) {
+  if (!document.getElementById('page-' + n)) n = 'home';
+  document.querySelectorAll('.page').forEach(pg => pg.classList.toggle('on', pg.id === 'page-' + n));
+  document.querySelectorAll('[data-p]').forEach(a => a.classList.toggle('act', a.dataset.p === n));
+  links.classList.remove('open'); burger.classList.remove('open'); burger.setAttribute('aria-expanded', false);
+  scrollTo(0, 0); try { history.replaceState(null, '', '#' + n); } catch (e) {} try { onScroll(); } catch (e) {}
+}
+document.querySelectorAll('[data-p]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); openPage(a.dataset.p); }));
+openPage(location.hash.slice(1) || 'home');
 </script>
 </body>
 </html>
